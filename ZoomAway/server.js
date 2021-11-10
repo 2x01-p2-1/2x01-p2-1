@@ -1,12 +1,33 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
 const cors = require('cors');
+const mongoose = require('mongoose');
+const session = require("express-session");
+const passport = require("passport");
+var cookieParser = require('cookie-parser')
+
 
 const app = express();
-app.set("view engine", "ejs");
+app.use(cookieParser())
 app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.set("view engine", "ejs");
 app.use(cors());
 app.use(express.static('public'));
+app.use(
+  session({
+    secret: "Wl3kQyRhQnpaa24I",
+    resave: false,
+    saveUninitialized: false,
+  })
+)
+app.use(passport.initialize());
+app.use(passport.session());
+
+mongoose.connect("mongodb+srv://Admin:admin@cl-cluster.una2r.mongodb.net/2102Assignment?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 //Setting up the Environment
 const port = process.env.PORT;
