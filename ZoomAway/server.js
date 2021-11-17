@@ -43,7 +43,7 @@ app.use('/sensorData', sensorData);
 
 app.get('/', function (req, res) {
     res.send('Welcome to SIT.')
-  });
+});
 
 app.listen(port,host, () => {
   // print a message when the server starts listening
