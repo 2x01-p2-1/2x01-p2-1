@@ -43,7 +43,11 @@ app.use('/sensorData', sensorData);
 
 app.get('/', function (req, res) {
     res.send('Welcome to SIT.')
-  });
+});
+
+app.get('/game', function (req, res) {
+  res.render('game');
+});
 
 app.listen(port,host, () => {
   // print a message when the server starts listening
