@@ -5,26 +5,23 @@ var workspace = Blockly.inject('blocklyDiv', {
 
 function move_up() {
     let player = document.getElementById('player');
-    let left = parseInt(player.style.left, 10);
     let top = parseInt(player.style.top, 10);
-    if (left == 0) {
-        top -= 64;
-    }
+    top -= 64;
     player.style.top = top + 'px';
-    let message = "go up";
-    console.log(message);
-    console.log('top: ' + top + 'px');
-    console.log('left: ' + left + 'px');
 }
 
-function turn_right() {
-    let x = "go right";
-    console.log(x);
+function move_right() {
+    let player = document.getElementById('player');
+    let left = parseInt(player.style.left, 10);
+    left += 64;
+    player.style.left = left + 'px';
 }
 
-function turn_left() {
-    let x = "go left";
-    console.log(x);
+function move_left() {
+    let player = document.getElementById('player');
+    let left = parseInt(player.style.left, 10);
+    left -= 64;
+    player.style.left = left + 'px';
 }
 
 function saveToXML() {
