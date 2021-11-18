@@ -1,12 +1,12 @@
-Blockly.JavaScript['turn_left'] = function (block) {
+Blockly.JavaScript['move_left'] = function (block) {
     // TODO: Assemble JavaScript into code variable.
-    var code = 'turn_left();\n';
+    var code = 'move_left();\n';
     return code;
 };
 
-Blockly.JavaScript['turn_right'] = function (block) {
+Blockly.JavaScript['move_right'] = function (block) {
     // TODO: Assemble JavaScript into code variable.
-    var code = 'turn_right();\n';
+    var code = 'move_right();\n';
     return code;
 };
 

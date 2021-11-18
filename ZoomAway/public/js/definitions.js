@@ -1,7 +1,7 @@
-Blockly.Blocks['turn_left'] = {
+Blockly.Blocks['move_left'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("turn left");
+            .appendField("move left");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
@@ -10,10 +10,10 @@ Blockly.Blocks['turn_left'] = {
     }
 };
 
-Blockly.Blocks['turn_right'] = {
+Blockly.Blocks['move_right'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("turn right");
+            .appendField("move right");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
