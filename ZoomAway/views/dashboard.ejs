@@ -2,28 +2,30 @@
 <html>
 
 <head>
-    <%- include('common/head') %>
-        <style>
-            .bd-placeholder-img {
-                font-size: 1.125rem;
-                text-anchor: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                user-select: none;
-            }
-
-            @media (min-width: 768px) {
-                .bd-placeholder-img-lg {
-                    font-size: 3.5rem;
-                }
-            }
-        </style>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/sensor.css">
+    <style>
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+      
+        @media (min-width: 768px) {
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+        }
+      </style>
+      
 </head>
 
 
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <%- include('common/header') %>
+        <%- include('../partials/header') %>
     </header>
 
     <div class="container-fluid">
@@ -38,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="game">
+                            <a class="nav-link" href="/">
                                 <span data-feather="flag"></span>
                                 Challenges
                             </a>
@@ -51,13 +53,64 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Dashboard</h1>
                 </div>
+                <div>
+                    <h5>Sensor Data</h5>
+                    <table class="table table-hover">
+                        <tr class="thead-dark">
+                          <th>ID</th>
+                          <th>IRLineSensorData</th>
+                          <th>CreatedAt</th>
+                          <th> </th>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>.....</td>
+                          <td>19/11/2021</td>
+                          <td><button type="button" class="btn btn-primary"  onclick="openForm()">View</button></td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>.....</td>
+                          <td>18/11/2021</td>
+                          <td><button type="button" class="btn btn-primary"  onclick="openForm()">View</button></td>
+                        </tr>
+                      </table>
+                </div>
+                <div class="form-popup" id="myForm">
+                    <form action="" class="form-container">
+                      <h3 style="text-align: center;">Sensor Data Details</h3>
+                      <label for="id"><b>ID: </b></label>
+                      <input type="text" placeholder="100" name="id" readonly>
+                      <br>
+                      <label for="irLineSensorData"><b>IR Line Sensor Data: </b></label>
+                      <input type="text" placeholder="....." name="irLineSensorData" readonly>
+                      <br>
+                      <label for="wheelEncoderData"><b>Wheel Encoder Data: </b></label>
+                      <input type="text" placeholder="....." name="wheelEncoderData" readonly>
+                      <br>
+                      <label for="averageSpeed"><b>Average Speed: </b></label>
+                      <input type="text" placeholder="....." name="averageSpeed" readonly>
+                      <br>
+                      <label for="distanceTravelled"><b>Distance Travelled: </b></label>
+                      <input type="text" placeholder="....." name="distanceTravelled" readonly>
+                      <br>
+                      <label for="ultraSonicSensorData"><b>Ultra Sonic Sensor Data: </b></label>
+                      <input type="text" placeholder="....." name="ultraSonicSensorData" readonly>
+                      <br>
+                      <label for="createdAt"><b>Created At: </b></label>
+                      <input type="text" placeholder="....." name="createdAt" readonly>
+                      <br>
+                      <button type="button" style="position: relative; left:35%;" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                  </div>
             </main>
             <!-- To contain within the container-fluid -->
         </div>
     </div>
-
+   
     <footer>
-        <%- include('common/footer') %>
+        <script src="/js/sensor.js"></script>
+        <%- include('../partials/footer') %>
     </footer>
 
 </body>
