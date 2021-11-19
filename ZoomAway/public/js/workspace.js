@@ -50,7 +50,18 @@ function runCode() {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     try {
-        eval(code);
+        var myArray = code.split('\n');
+        myArray.pop();
+        for (let i = 0; i < myArray.length; i++) {
+            if (i==0) {
+                eval(myArray[i]);
+            } else {
+                setTimeout(() => {
+                    eval(myArray[i]);
+                }, 2000+i*1000);
+            }
+            
+        }
     } catch (e) {
         alert(e);
     }
