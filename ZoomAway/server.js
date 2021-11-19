@@ -46,7 +46,7 @@ app.get('/', function (req, res) {
   });
 
 app.get('/dashboard', function(req, res){
-    res.render('views/dashboard');
+    res.render('dashboard');
 });
 
 app.listen(port,host, () => {
