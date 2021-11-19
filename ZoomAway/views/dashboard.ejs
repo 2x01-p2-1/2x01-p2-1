@@ -79,27 +79,41 @@
                 <div class="form-popup" id="myForm">
                     <form action="" class="form-container">
                       <h3 style="text-align: center;">Sensor Data Details</h3>
-                      <label for="id"><b>ID: </b></label>
+                      <div class="row mb-3">
+                      <label  class="col-sm-6 col-form-label" for="id"><b>ID: </b></label>
                       <input type="text" placeholder="100" name="id" readonly>
-                      <br>
-                      <label for="irLineSensorData"><b>IR Line Sensor Data: </b></label>
-                      <input type="text" placeholder="....." name="irLineSensorData" readonly>
-                      <br>
-                      <label for="wheelEncoderData"><b>Wheel Encoder Data: </b></label>
-                      <input type="text" placeholder="....." name="wheelEncoderData" readonly>
-                      <br>
-                      <label for="averageSpeed"><b>Average Speed: </b></label>
-                      <input type="text" placeholder="....." name="averageSpeed" readonly>
-                      <br>
-                      <label for="distanceTravelled"><b>Distance Travelled: </b></label>
-                      <input type="text" placeholder="....." name="distanceTravelled" readonly>
-                      <br>
-                      <label for="ultraSonicSensorData"><b>Ultra Sonic Sensor Data: </b></label>
-                      <input type="text" placeholder="....." name="ultraSonicSensorData" readonly>
-                      <br>
-                      <label for="createdAt"><b>Created At: </b></label>
-                      <input type="text" placeholder="....." name="createdAt" readonly>
-                      <br>
+                      </div>
+                     
+                      <div class="row mb-3">
+                      <label class="col-sm-6 col-form-label" for="irLineSensorData"><b>IR Line Sensor Data: </b></label>
+                      <input class="form-control" type="text" placeholder="....." name="irLineSensorData" readonly>
+                      </div>
+                      
+                      <div class="row mb-3">
+                      <label class="col-sm-6 col-form-label" for="wheelEncoderData"><b>Wheel Encoder Data: </b></label>
+                      <input class="form-control" type="text" placeholder="....." name="wheelEncoderData" readonly>
+                      </div>
+                      
+                      <div class="row mb-3">
+                      <label class="col-sm-6 col-form-label" for="averageSpeed"><b>Average Speed: </b></label>
+                      <input class="form-control" type="text" placeholder="....." name="averageSpeed" readonly>
+                      </div>
+                    
+                      <div class="row mb-3">
+                      <label class="col-sm-6 col-form-label" for="distanceTravelled"><b>Distance Travelled: </b></label>
+                      <input class="form-control" type="text" placeholder="....." name="distanceTravelled" readonly>
+                      </div>
+                     
+                      <div class="row mb-3">
+                      <label class="col-sm-6 col-form-label" for="ultraSonicSensorData"><b>Ultra Sonic Sensor Data: </b></label>
+                      <input class="form-control" type="text" placeholder="....." name="ultraSonicSensorData" readonly>
+                      </div>
+                     
+                      <div class="row mb-3">
+                      <label class="col-sm-6 col-form-label" for="createdAt"><b>Created At: </b></label>
+                      <input class="form-control" type="text" placeholder="....." name="createdAt" readonly>
+                      </div>
+                    
                       <button type="button" style="position: relative; left:35%;" class="btn cancel" onclick="closeForm()">Close</button>
                     </form>
                   </div>
