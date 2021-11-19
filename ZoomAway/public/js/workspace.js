@@ -40,6 +40,9 @@ function showCode() {
 function clearWorkspace() {
     workspace.clear();
     console.log("Workspace cleared");
+    let element = document.getElementById('player');
+    element.parentNode.removeChild(element);
+    init();
 }
 
 function runCode() {
