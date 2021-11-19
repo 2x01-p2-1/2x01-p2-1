@@ -1,6 +1,6 @@
 
-var workspace = Blockly.inject('blocklyDiv', { 
-    toolbox: document.getElementById('toolbox') 
+var workspace = Blockly.inject('blocklyDiv', {
+    toolbox: document.getElementById('toolbox')
 });
 
 function move_up() {
@@ -40,9 +40,23 @@ function showCode() {
 function clearWorkspace() {
     workspace.clear();
     console.log("Workspace cleared");
-    let element = document.getElementById('player');
-    element.parentNode.removeChild(element);
+    let player = document.getElementById('player');
+    let floor = document.getElementsByClassName('floor');
+    let wall = document.getElementsByClassName('wall');
+    let goal = document.getElementById('goal');
+    player.parentNode.removeChild(player);
+    while (floor.length > 0) {
+        floor[0].parentNode.removeChild(floor[0]);
+    }
+    while (wall.length > 0) {
+        wall[0].parentNode.removeChild(wall[0]);
+    }
+    goal.parentNode.removeChild(goal);
     init();
+    var x = document.getElementsByClassName('wall');
+    for (let i = 0; i < x.length; i++) {
+        console.log(x[i]);
+    }
 }
 
 function runCode() {
@@ -56,15 +70,16 @@ function runCode() {
         var myArray = code.split('\n');
         myArray.pop();
         for (let i = 0; i < myArray.length; i++) {
-            if (i==0) {
+            if (i == 0) {
                 eval(myArray[i]);
             } else {
                 setTimeout(() => {
                     eval(myArray[i]);
-                }, 2000+i*1000);
+                }, 1000 + i * 1000);
             }
-            
+
         }
+
     } catch (e) {
         alert(e);
     }
