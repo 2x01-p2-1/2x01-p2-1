@@ -1,20 +1,68 @@
-
 var workspace = Blockly.inject('blocklyDiv', {
     toolbox: document.getElementById('toolbox')
 });
 
+function checkRight (player) {
+    let check = false;
+    let wallArray = document.getElementsByClassName('wall');
+
+    let playerTop = parseInt(player.style.top, 10);
+    let playerLeft = parseInt(player.style.left, 10);
+
+    for (let i = 0; i < wallArray.length; i++) {
+        let wallTop = parseInt(wallArray[i].style.top);
+        if (playerTop == wallTop) {
+            let wallLeft = parseInt(wallArray[i].style.left);
+            wallLeft -= 64;
+            if (playerLeft == wallLeft) {
+                check = true;
+                return check;
+            }
+        }
+    }
+    return check;
+}
+function checkTop (player) {
+    let check = false;
+    let wallArray = document.getElementsByClassName('wall');
+
+    let playerTop = parseInt(player.style.top, 10);
+    let playerLeft = parseInt(player.style.left, 10);
+
+    for (let i = 0; i < wallArray.length; i++) {
+        let wallLeft = parseInt(wallArray[i].style.left);
+        if (playerLeft == wallLeft) {
+            let wallTop = parseInt(wallArray[i].style.top);
+            wallTop += 64;
+            if (playerTop == wallTop) {
+                check = true;
+                return check;
+            }
+        }
+    }
+    return check;
+}
+
 function move_up() {
     let player = document.getElementById('player');
-    let top = parseInt(player.style.top, 10);
-    top -= 64;
-    player.style.top = top + 'px';
+    if (checkTop(player)) {
+        console.log('OOF!');
+    } else {
+        let top = parseInt(player.style.top, 10);
+        top -= 64;
+        player.style.top = top + 'px';
+    }
 }
 
 function move_right() {
     let player = document.getElementById('player');
-    let left = parseInt(player.style.left, 10);
-    left += 64;
-    player.style.left = left + 'px';
+    if (checkRight(player)) {
+        console.log('OOF!');
+    } else {
+        let left = parseInt(player.style.left, 10);
+        left += 64;
+        player.style.left = left + 'px';;
+    }
 }
 
 function move_left() {
@@ -77,9 +125,7 @@ function runCode() {
                     eval(myArray[i]);
                 }, 1000 + i * 1000);
             }
-
         }
-
     } catch (e) {
         alert(e);
     }
