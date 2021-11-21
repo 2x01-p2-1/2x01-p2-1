@@ -22,6 +22,26 @@ function checkRight (player) {
     }
     return check;
 }
+function checkLeft (player) {
+    let check = false;
+    let wallArray = document.getElementsByClassName('wall');
+
+    let playerTop = parseInt(player.style.top, 10);
+    let playerLeft = parseInt(player.style.left, 10);
+
+    for (let i = 0; i < wallArray.length; i++) {
+        let wallTop = parseInt(wallArray[i].style.top);
+        if (playerTop == wallTop) {
+            let wallLeft = parseInt(wallArray[i].style.left);
+            wallLeft += 64;
+            if (playerLeft == wallLeft) {
+                check = true;
+                return check;
+            }
+        }
+    }
+    return check;
+}
 function checkTop (player) {
     let check = false;
     let wallArray = document.getElementsByClassName('wall');
@@ -50,7 +70,11 @@ function move_up() {
     } else {
         let top = parseInt(player.style.top, 10);
         top -= 64;
-        player.style.top = top + 'px';
+        if (top < 0) {
+            console.log('Out of bounds!');
+        } else {
+            player.style.top = top + 'px';
+        }
     }
 }
 
@@ -61,15 +85,27 @@ function move_right() {
     } else {
         let left = parseInt(player.style.left, 10);
         left += 64;
-        player.style.left = left + 'px';;
+        if (left < 0) {
+            console.log('Out of bounds!');
+        } else {
+            player.style.left = left + 'px';
+        }
     }
 }
 
 function move_left() {
     let player = document.getElementById('player');
-    let left = parseInt(player.style.left, 10);
-    left -= 64;
-    player.style.left = left + 'px';
+    if (checkLeft(player)) {
+        console.log('OOF!');
+    } else {
+        let left = parseInt(player.style.left, 10);
+        left -= 64;
+        if (left < 0) {
+            console.log('Out of bounds!');
+        } else {
+            player.style.left = left + 'px';
+        }
+    }
 }
 
 function saveToXML() {
@@ -101,10 +137,6 @@ function clearWorkspace() {
     }
     goal.parentNode.removeChild(goal);
     init();
-    var x = document.getElementsByClassName('wall');
-    for (let i = 0; i < x.length; i++) {
-        console.log(x[i]);
-    }
 }
 
 function runCode() {
