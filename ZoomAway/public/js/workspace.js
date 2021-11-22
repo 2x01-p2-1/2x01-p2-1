@@ -2,7 +2,7 @@ var workspace = Blockly.inject('blocklyDiv', {
     toolbox: document.getElementById('toolbox')
 });
 
-function checkRight (player) {
+function checkRight(player) {
     let check = false;
     let wallArray = document.getElementsByClassName('wall');
 
@@ -22,7 +22,8 @@ function checkRight (player) {
     }
     return check;
 }
-function checkLeft (player) {
+
+function checkLeft(player) {
     let check = false;
     let wallArray = document.getElementsByClassName('wall');
 
@@ -42,7 +43,8 @@ function checkLeft (player) {
     }
     return check;
 }
-function checkTop (player) {
+
+function checkTop(player) {
     let check = false;
     let wallArray = document.getElementsByClassName('wall');
 
