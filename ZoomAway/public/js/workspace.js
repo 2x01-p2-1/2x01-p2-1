@@ -126,6 +126,29 @@ function showCode() {
 function clearWorkspace() {
     workspace.clear();
     console.log("Workspace cleared");
+    document.getElementById('runCode').removeAttribute('disabled');
+    resetMaze();
+}
+
+function runCode() {
+    // Generate JavaScript code and run it.
+    window.LoopTrap = 1000;
+    Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+    try {
+        document.getElementById('runCode').disabled = true;
+        runCodeDelay(code);
+    } catch (e) {
+        alert(e);
+    }
+}
+
+/**
+ * Remove all attributes of the maze and call init function again.
+ */
+function resetMaze() {
     let player = document.getElementById('player');
     let floor = document.getElementsByClassName('floor');
     let wall = document.getElementsByClassName('wall');
@@ -141,26 +164,21 @@ function clearWorkspace() {
     init();
 }
 
-function runCode() {
-    // Generate JavaScript code and run it.
-    window.LoopTrap = 1000;
-    Blockly.JavaScript.INFINITE_LOOP_TRAP =
-        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-    var code = Blockly.JavaScript.workspaceToCode(workspace);
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-    try {
-        var myArray = code.split('\n');
-        myArray.pop();
-        for (let i = 0; i < myArray.length; i++) {
-            if (i == 0) {
+/**
+ * Takes in workspace block code as an array and runs them sequentially.
+ * 
+ * @param {Array} code 
+ */
+function runCodeDelay(code) {
+    let myArray = code.split('\n');
+    myArray.pop();
+    for (let i = 0; i < myArray.length; i++) {
+        if (i == 0) {
+            eval(myArray[i]);
+        } else {
+            setTimeout(() => {
                 eval(myArray[i]);
-            } else {
-                setTimeout(() => {
-                    eval(myArray[i]);
-                }, 1000 + i * 1000);
-            }
+            }, 1000 + i * 1000);
         }
-    } catch (e) {
-        alert(e);
     }
 }
