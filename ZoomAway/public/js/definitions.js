@@ -1,35 +1,14 @@
-Blockly.Blocks['move_left'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("move left");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.Blocks['move_right'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("move right");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
-
-Blockly.Blocks['move_up'] = {
-    init: function () {
-        this.appendDummyInput()
-            .appendField("move up");
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setColour(230);
-        this.setTooltip("");
-        this.setHelpUrl("");
-    }
-};
+let testArray = ['move_up', 'move_left', 'move_right'];
+for (let i = 0; i < testArray.length; i++) {
+    Blockly.Blocks[testArray[i]] = {
+        init: function () {
+            this.appendDummyInput()
+                .appendField(testArray[i]);
+            this.setPreviousStatement(true, null);
+            this.setNextStatement(true, null);
+            this.setColour(230);
+            this.setTooltip("");
+            this.setHelpUrl("");
+        }
+    };
+}

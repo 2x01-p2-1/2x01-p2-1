@@ -110,19 +110,6 @@ function move_left() {
     }
 }
 
-function saveToXML() {
-    var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
-    var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
-    console.log(xmlText);
-}
-
-function showCode() {
-    // Generate JavaScript code and display it.
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-    var code = Blockly.JavaScript.workspaceToCode(workspace);
-    alert(code);
-}
-
 function clearWorkspace() {
     workspace.clear();
     console.log("Workspace cleared");
@@ -142,6 +129,23 @@ function runCode() {
         runCodeDelay(code);
     } catch (e) {
         alert(e);
+    }
+}
+
+function checkGoal() {
+    let player = document.getElementById('player');
+    let goal = document.getElementById('goal');
+    
+    let playerTop = parseInt(player.style.top, 10);
+    let playerLeft = parseInt(player.style.left, 10);
+
+    let goalTop = parseInt(goal.style.top, 10);
+    let goalLeft = parseInt(goal.style.left, 10);
+
+    if (playerLeft == goalLeft) {
+        if (playerTop == goalTop) {
+            alert('Congratulations! You have successfully completed this stage!');
+        }
     }
 }
 
@@ -178,6 +182,7 @@ function runCodeDelay(code) {
         } else {
             setTimeout(() => {
                 eval(myArray[i]);
+                checkGoal();
             }, 1000 + i * 1000);
         }
     }

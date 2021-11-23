@@ -61,10 +61,8 @@
                 </div>
 
                 <p>
-                    <button onclick="showCode()">Show Javascript</button>
-                    <button id="runCode" onclick="runCode()">Run Javascript</button>
-                    <button onclick="saveToXML()">Export to XML</button>
-                    <button onclick="clearWorkspace()">Reset Workspace</button>
+                    <button class="btn btn-success" id="runCode" onclick="runCode()">Run Javascript</button>
+                    <button class="btn btn-danger" onclick="clearWorkspace()">Reset Workspace</button>
                 </p>
 
                 <div id="blocklyDiv" style="height: 480px; width: 600px;">
@@ -88,9 +86,9 @@
     </div>
 
     <footer>
-        <%- include('common/footer') %>
         <script src="/js/workspace.js"></script>
         <script src="/js/maze.js"></script>
+        <%- include('common/footer') %>
     </footer>
 
 </body>
