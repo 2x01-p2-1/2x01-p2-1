@@ -114,7 +114,6 @@ function clearWorkspace() {
     workspace.clear();
     console.log("Workspace cleared");
     document.getElementById('runCode').removeAttribute('disabled');
-    resetMaze();
 }
 
 function runCode() {
@@ -125,7 +124,9 @@ function runCode() {
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     try {
-        document.getElementById('runCode').disabled = true;
+        if (code != '') {
+            document.getElementById('runCode').disabled = true;
+        }
         runCodeDelay(code);
     } catch (e) {
         alert(e);
@@ -144,15 +145,17 @@ function checkGoal() {
 
     if (playerLeft == goalLeft) {
         if (playerTop == goalTop) {
-            alert('Congratulations! You have successfully completed this stage!');
+            return true;
         }
     }
+    return false;
 }
 
 /**
  * Remove all attributes of the maze and call init function again.
  */
 function resetMaze() {
+    document.getElementById('runCode').removeAttribute('disabled');
     let player = document.getElementById('player');
     let floor = document.getElementsByClassName('floor');
     let wall = document.getElementsByClassName('wall');
@@ -182,8 +185,14 @@ function runCodeDelay(code) {
         } else {
             setTimeout(() => {
                 eval(myArray[i]);
-                checkGoal();
             }, 1000 + i * 1000);
-        }
+        };
     }
+    setTimeout(() => {
+        if (checkGoal()) {
+            alert('Congratulations! You have successfully completed this stage.');
+        } else {
+            alert('Please reset the workspace and try again.');
+        }
+    }, 1000 + myArray.length * 1000);
 }
