@@ -126,8 +126,8 @@ function runCode() {
     try {
         if (code != '') {
             document.getElementById('runCode').disabled = true;
+            runCodeDelay(code);
         }
-        runCodeDelay(code);
     } catch (e) {
         alert(e);
     }
