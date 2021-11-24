@@ -1,9 +1,9 @@
-let testArray = ['move_up', 'move_left', 'move_right'];
-for (let i = 0; i < testArray.length; i++) {
-    Blockly.Blocks[testArray[i]] = {
+let blockArray = ['move_up', 'move_left', 'move_right'];
+for (let i = 0; i < blockArray.length; i++) {
+    Blockly.Blocks[blockArray[i]] = {
         init: function () {
             this.appendDummyInput()
-                .appendField(testArray[i]);
+                .appendField(blockArray[i]);
             this.setPreviousStatement(true, null);
             this.setNextStatement(true, null);
             this.setColour(230);

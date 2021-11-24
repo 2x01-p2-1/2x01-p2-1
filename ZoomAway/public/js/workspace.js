@@ -114,6 +114,7 @@ function clearWorkspace() {
     workspace.clear();
     console.log("Workspace cleared");
     document.getElementById('runCode').removeAttribute('disabled');
+    resetMaze();
 }
 
 function runCode() {
@@ -190,9 +191,15 @@ function runCodeDelay(code) {
     }
     setTimeout(() => {
         if (checkGoal()) {
+            playStageClear();
             alert('Congratulations! You have successfully completed this stage.');
         } else {
             alert('Please reset the workspace and try again.');
         }
     }, 1000 + myArray.length * 1000);
+}
+
+function playStageClear() {
+    let audio = new Audio('../audio/stage_clear.mp3');
+    audio.play();
 }
