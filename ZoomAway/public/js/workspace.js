@@ -3,7 +3,6 @@ var workspace = Blockly.inject('blocklyDiv', {
 });
 
 function checkRight(player) {
-    let check = false;
     let wallArray = document.getElementsByClassName('wall');
 
     let playerTop = parseInt(player.style.top, 10);
@@ -15,16 +14,14 @@ function checkRight(player) {
             let wallLeft = parseInt(wallArray[i].style.left);
             wallLeft -= 64;
             if (playerLeft == wallLeft) {
-                check = true;
-                return check;
+                return true;
             }
         }
     }
-    return check;
+    return false;
 }
 
 function checkLeft(player) {
-    let check = false;
     let wallArray = document.getElementsByClassName('wall');
 
     let playerTop = parseInt(player.style.top, 10);
@@ -36,16 +33,14 @@ function checkLeft(player) {
             let wallLeft = parseInt(wallArray[i].style.left);
             wallLeft += 64;
             if (playerLeft == wallLeft) {
-                check = true;
-                return check;
+                return true;
             }
         }
     }
-    return check;
+    return false;
 }
 
 function checkTop(player) {
-    let check = false;
     let wallArray = document.getElementsByClassName('wall');
 
     let playerTop = parseInt(player.style.top, 10);
@@ -57,12 +52,11 @@ function checkTop(player) {
             let wallTop = parseInt(wallArray[i].style.top);
             wallTop += 64;
             if (playerTop == wallTop) {
-                check = true;
-                return check;
+                return true;
             }
         }
     }
-    return check;
+    return false;
 }
 
 function move_up() {

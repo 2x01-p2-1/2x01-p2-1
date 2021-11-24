@@ -22,10 +22,6 @@ div.layer, div.layer div {
     background-color: skyblue;
 }
 
-.player {
-    background-image: url("https://img.icons8.com/ios/64/000000/car--v2.png");
-}
-
 .goal {
     background-image: url("https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-Flag-business-and-marketing-bearicons-outline-color-bearicons.png");
 }
