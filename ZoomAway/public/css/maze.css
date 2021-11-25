@@ -27,7 +27,7 @@ div.layer, div.layer div {
 }
 
 .player {
-    background-image: url("https://img.icons8.com/ios/64/000000/car--v2.png");
+    background-image: url('https://img.icons8.com/nolan/64/car.png');
     transition: left 0.2s linear, top 0.2s linear;
 }
 
