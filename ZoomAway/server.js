@@ -45,6 +45,14 @@ app.get('/', function (req, res) {
     res.send('Welcome to SIT.')
   });
 
+app.get('/challenges', function (req, res) {
+  res.render('challenges');
+});
+
+app.get('/dashboard', function (req, res) {
+  res.render('dashboard');
+});
+
 app.listen(port,host, () => {
   // print a message when the server starts listening
   console.log("server starting on " + host + ":" + port);
