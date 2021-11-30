@@ -22,10 +22,10 @@ Blockly.Blocks['turn_right'] = {
     }
 };
 
-Blockly.Blocks['move_forward'] = {
+Blockly.Blocks['move_up'] = {
     init: function () {
         this.appendDummyInput()
-            .appendField("move forward");
+            .appendField("move up");
         this.setPreviousStatement(true, null);
         this.setNextStatement(true, null);
         this.setColour(230);
