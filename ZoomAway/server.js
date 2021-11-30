@@ -41,9 +41,6 @@ app.use('/challenges', challenges);
 var sensorData = require('./routes/sensorData');
 app.use('/sensorData', sensorData);
 
-//CSS routes
-app.use(express.static("public"));
-
 app.get('/', function (req, res) {
     res.send('Welcome to SIT.')
 });
@@ -62,6 +59,11 @@ app.get('/challenges', function (req, res) {
 //Create Challenges routes
 app.get('/createChallenge', function (req, res) {
   res.render('createChallenge');
+});
+
+//Edit Challenges routes
+app.get('/editChallenge', function (req, res) {
+  res.render('editChallenge');
 });
 
 
