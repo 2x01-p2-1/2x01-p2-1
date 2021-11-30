@@ -67,6 +67,12 @@ app.get('/game', function (req, res) {
   res.render('game');
 })
 
+//Edit Challenges routes
+app.get('/editChallenge', function (req, res) {
+  res.render('editChallenge');
+});
+
+
 app.listen(port,host, () => {
   // print a message when the server starts listening
   console.log("server starting on " + host + ":" + port);
