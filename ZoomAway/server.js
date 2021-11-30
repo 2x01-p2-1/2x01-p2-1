@@ -49,6 +49,7 @@ app.get('/', function (req, res) {
 });
 
 
+
 //Views Dashboard routes
 app.get('/dashboard', function (req, res) {
   res.render('dashboard');
@@ -63,6 +64,7 @@ app.get('/challenges', function (req, res) {
 app.get('/createChallenge', function (req, res) {
   res.render('createChallenge');
 });
+
 
 
 app.listen(port,host, () => {
