@@ -114,6 +114,7 @@ body {
 
 .challengesTable a:hover {
     color: thistle;
+
 }
 /*-------------------------
 | Create Challenge Page   |
@@ -183,4 +184,5 @@ body {
   background-color: #047628;
   border: none;
   -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+
 }

@@ -1,10 +1,20 @@
 
-var workspace = Blockly.inject('blocklyDiv',
-    { toolbox: document.getElementById('toolbox') });
+var workspace = Blockly.inject('blocklyDiv', { 
+    toolbox: document.getElementById('toolbox') 
+});
 
-function move_forward() {
-    let x = "go forward";
-    console.log(x);
+function move_up() {
+    let player = document.getElementById('player');
+    let left = parseInt(player.style.left, 10);
+    let top = parseInt(player.style.top, 10);
+    if (left == 0) {
+        top -= 64;
+    }
+    player.style.top = top + 'px';
+    let message = "go up";
+    console.log(message);
+    console.log('top: ' + top + 'px');
+    console.log('left: ' + left + 'px');
 }
 
 function turn_right() {
@@ -28,6 +38,11 @@ function showCode() {
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     var code = Blockly.JavaScript.workspaceToCode(workspace);
     alert(code);
+}
+
+function clearWorkspace() {
+    workspace.clear();
+    console.log("Workspace cleared");
 }
 
 function runCode() {

@@ -41,9 +41,14 @@ app.use('/challenges', challenges);
 var sensorData = require('./routes/sensorData');
 app.use('/sensorData', sensorData);
 
+//CSS routes
+app.use(express.static("public"));
+
 app.get('/', function (req, res) {
     res.send('Welcome to SIT.')
 });
+
+
 
 //Views Dashboard routes
 app.get('/dashboard', function (req, res) {
@@ -59,6 +64,8 @@ app.get('/challenges', function (req, res) {
 app.get('/createChallenge', function (req, res) {
   res.render('createChallenge');
 });
+
+
 
 app.listen(port,host, () => {
   // print a message when the server starts listening
