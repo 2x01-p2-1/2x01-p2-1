@@ -22,19 +22,12 @@ div.layer, div.layer div {
     background-color: skyblue;
 }
 
-.player {
-    background-color: #90ee90;
-    border: 1px solid green;
-}
-
 .goal {
-    background-color: #FFD700;
-    border: 1px solid #98720b;
+    background-image: url("https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-Flag-business-and-marketing-bearicons-outline-color-bearicons.png");
 }
 
 .player {
-    background-color: #90ee90;
-    border: 1px solid green;
+    background-image: url('https://img.icons8.com/nolan/64/car.png');
     transition: left 0.2s linear, top 0.2s linear;
 }
 

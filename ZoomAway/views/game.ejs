@@ -18,6 +18,7 @@
                 }
             }
         </style>
+        <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/maze.css">
         <script src="https://unpkg.com/blockly/blockly.min.js"></script>
         <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
@@ -34,65 +35,40 @@
         <%- include('common/header') %>
     </header>
 
-    <div class="container-fluid">
-        <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="dashboard">
-                                <span data-feather="activity"></span>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">
-                                <span data-feather="flag"></span>
-                                Challenges
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Challenges</h1>
-                </div>
+        <main class="container pt-5">
+            <div class="d-flex mt-4">
+                <h1 class="h2">Challenges</h1>
+            </div>
 
-                <p>
-                    <button onclick="showCode()">Show Javascript</button>
-                    <button onclick="runCode()">Run Javascript</button>
-                    <button onclick="saveToXML()">Export to XML</button>
-                    <button onclick="clearWorkspace()">Reset Workspace</button>
-                </p>
+            <p>
+                <button class="btn btn-success" id="runCode" onclick="runCode()">Run</button>
+                <button class="btn btn-danger" onclick="clearWorkspace()">Reset Workspace</button>
+                <button class="btn btn-danger" onclick="resetMaze()">Reset Maze</button>
+            </p>
 
-                <div id="blocklyDiv" style="height: 480px; width: 600px;">
-                    <%- include('common/maze') %>
-                </div>
+            <div id="blocklyDiv" style="height: 480px; width: 600px;">
+                <%- include('common/maze') %>
+            </div>
 
-
-
-                <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-                    <category name="Movement">
-                        <block type="turn_left"></block>
-                        <block type="turn_right"></block>
-                        <block type="move_up"></block>
-                    </category>
-                </xml>
-
-
-            </main>
-            <!-- To contain within the container-fluid -->
-        </div>
-    </div>
+            <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+                <block type="move_left"></block>
+                <block type="move_right"></block>
+                <block type="move_up"></block>
+            </xml>
+        </main>
 
     <footer>
         <%- include('common/footer') %>
-        <script src="/js/workspace.js"></script>
-        <script src="/js/maze.js"></script>
     </footer>
-
+    <script src="/js/workspace.js"></script>
+    <script src="/js/maze.js"></script>
+    <script>
+        // <!-- Remove Sidebar -->
+        $(document).ready(function(){
+            $("#sidebarMenu").removeClass("sidebar");
+            $(".position-sticky").css('display', 'none');
+        });
+    </script>
 </body>
 
 </html>
