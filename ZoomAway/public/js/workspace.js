@@ -1,5 +1,6 @@
 var workspace = Blockly.inject('blocklyDiv', {
-    toolbox: document.getElementById('toolbox')
+    toolbox: document.getElementById('toolbox'),
+    trashcan: true
 });
 
 function checkRight(player) {
