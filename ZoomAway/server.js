@@ -45,7 +45,6 @@ app.get('/', function (req, res) {
     res.send('Welcome to SIT.')
 });
 
-
 //Views Dashboard routes
 app.get('/dashboard', function (req, res) {
   res.render('dashboard');

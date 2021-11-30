@@ -140,12 +140,14 @@ body {
   padding: 1% 0%;
 }
 
+
 .create-form p, 
 .edit-form p {
   font-size: large;
 }
 
 .create-form input,
+.create-form textarea {
 .create-form textarea,
 .edit-form input,
 .edit-form textarea {
@@ -167,7 +169,7 @@ body {
   background-color: #ebebeb;
   -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
 }
-
+  
 .maze {
   overflow: hidden;
   border-radius: 4px;
