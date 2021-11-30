@@ -48,7 +48,6 @@ app.get('/', function (req, res) {
     res.send('Welcome to SIT.')
 });
 
-
 //Views Dashboard routes
 app.get('/dashboard', function (req, res) {
   res.render('dashboard');
@@ -64,6 +63,9 @@ app.get('/createChallenge', function (req, res) {
   res.render('createChallenge');
 });
 
+app.get('/game', function (req, res) {
+  res.render('game');
+})
 
 app.listen(port,host, () => {
   // print a message when the server starts listening
