@@ -3,6 +3,52 @@
 
 <head>
     <%- include('common/head') %>
+    <style>
+        .game-container {
+    margin: 0px auto;
+}
+
+.game-map {
+    position: relative;
+}
+
+div.layer, div.layer div {
+    position: absolute;
+}
+
+#tiles div {
+    border: 1px solid grey;
+}
+
+.default .floor {
+    background-color: lightgrey;
+}
+
+.default .wall {
+    background-color: skyblue;
+}
+
+.goal {
+    background-image: url("https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-Flag-business-and-marketing-bearicons-outline-color-bearicons.png");
+}
+
+.player {
+    background-image: url('https://img.icons8.com/nolan/64/car.png');
+    transition: left 0.2s linear, top 0.2s linear;
+}
+
+/*
+   * player and goal are slightly smaller than tiles
+   */
+
+.player, .goal {
+    transform-origin: center;
+    transform: scale(0.85);
+}
+.maze {
+    height: 320px;
+}
+    </style>
 </head>
 
 <body style="background-color: white;">
@@ -14,7 +60,7 @@
     
     <!--Main layout-->
     <main>
-        <div class="create-form container mt-5">  
+        <div class="create-form container mt-5 mb-5">  
             <!-- Create Form Section -->
             <form action="/"></form>
                 <div class="row">
@@ -40,7 +86,7 @@
                     </div>
                     <div class="form-group col-md-10">
                         <p>Click on the <b>black</b> tile below to create the path of the maze.</p>
-                        <span class="form-control" name="maze" id="maze"></span>
+                        <%- include('common/maze') %>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -54,7 +100,7 @@
     <footer>
         <%- include('common/footer') %>
     </footer>
-    
+    <script src="/js/maze.js"></script>
     <script>
         // <!-- Remove Sidebar -->
         $(document).ready(function(){

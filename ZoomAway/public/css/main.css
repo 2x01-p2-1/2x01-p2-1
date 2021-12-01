@@ -147,7 +147,6 @@ body {
 }
 
 .create-form input,
-.create-form textarea {
 .create-form textarea,
 .edit-form input,
 .edit-form textarea {
@@ -168,11 +167,6 @@ body {
   border: 1px solid gray;
   background-color: #ebebeb;
   -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-}
-  
-.maze {
-  overflow: hidden;
-  border-radius: 4px;
 }
 
 .maze p {

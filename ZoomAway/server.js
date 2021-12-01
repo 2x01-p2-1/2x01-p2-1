@@ -53,27 +53,19 @@ app.get('/dashboard', function (req, res) {
   res.render('dashboard');
 });
 
-//Views Challenges routes
-app.get('/challenges', function (req, res) {
-  res.render('challenges');
-});
-
-//Create Challenges routes
-app.get('/createChallenge', function (req, res) {
-  res.render('createChallenge');
-});
-
-app.get('/game', function (req, res) {
-  res.render('game');
-})
-
-//Edit Challenges routes
-app.get('/editChallenge', function (req, res) {
-  res.render('editChallenge');
-});
 
 
-app.listen(port,host, () => {
+// app.get('/game', function (req, res) {
+//   res.render('game');
+// })
+
+// //Edit Challenges routes
+// app.get('/editChallenge', function (req, res) {
+//   res.render('editChallenge');
+// });
+
+
+app.listen(3000, () => {
   // print a message when the server starts listening
   console.log("server starting on " + host + ":" + port);
 });
