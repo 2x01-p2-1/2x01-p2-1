@@ -1,10 +1,10 @@
 const express = require('express');
-const dotenv = require('dotenv').config();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require("passport");
-var cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+
 
 
 const app = express();
@@ -29,9 +29,9 @@ mongoose.connect("mongodb+srv://Admin:admin@zoomaway.krhvi.mongodb.net/ZoomAway?
   useUnifiedTopology: true,
 });
 
-//Setting up the Environment
-const port = process.env.PORT;
-const host = process.env.HOST;
+//Setting Up Routes For Account
+var login = require('./routes/login');
+app.use('/login', login);
 
 //Setting up Challenges routes
 var challenges = require('./routes/challenges');
@@ -41,33 +41,11 @@ app.use('/challenges', challenges);
 var sensorData = require('./routes/sensorData');
 app.use('/sensorData', sensorData);
 
-//CSS routes
-app.use(express.static("public"));
-
 app.get('/', function (req, res) {
     res.send('Welcome to SIT.')
 });
 
-
-
-//Views Dashboard routes
-app.get('/dashboard', function (req, res) {
-  res.render('dashboard');
-});
-
-//Views Challenges routes
-app.get('/challenges', function (req, res) {
-  res.render('challenges');
-});
-
-//Create Challenges routes
-app.get('/createChallenge', function (req, res) {
-  res.render('createChallenge');
-});
-
-
-
-app.listen(port,host, () => {
+app.listen(3000, () => {
   // print a message when the server starts listening
-  console.log("server starting on " + host + ":" + port);
+  console.log("Server Starting on LocalHost:3000")
 });
