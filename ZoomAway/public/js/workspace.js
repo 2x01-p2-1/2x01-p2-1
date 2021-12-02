@@ -135,7 +135,7 @@ function runCode() {
 function checkGoal() {
     let player = document.getElementById('player');
     let goal = document.getElementById('goal');
-    
+
     let playerTop = parseInt(player.style.top, 10);
     let playerLeft = parseInt(player.style.left, 10);
 
@@ -193,8 +193,8 @@ function runCodeDelay(code) {
             Swal.fire({
                 title: "Success !",
                 text: "Well Done ! The car will start moving now !!!",
-                icon: "success",
-            }).then(response=>{
+                icon: "success"
+            }).then(result => {
                 Swal.close();
                 Swal.fire({
                     text: "Please Wait for Car Response...",
@@ -204,15 +204,62 @@ function runCodeDelay(code) {
                     showConfirmButton: false
                     //icon: "success"
                 });
-                //Send data to Backend
-                
+                axios.post('/challenges/sendCommand', {
+                    commands: "FLRFLR"
+                }).then(response => {
+                    var interval = setInterval(function () {
+                        $.getJSON('/MSP432 Files/response.json', function (data) {
+                            if (jQuery.isEmptyObject(data)) {
+                                console.log("Empty Object");
+                            } else {
+                                clearInterval(interval)
+                                Swal.close();
+                                if (data.success == 1) {
+                                    Swal.fire(`
+                                    Distance Travelled : ${data.distance}
+                                    Time Taken:${data.timeTaken}`).then(response => {
+                                        document.getElementById('runCode').disabled = false;
+                                        document.getElementById('clearBtn').disabled = false;
+                                        document.getElementById('resetBtn').disabled = false;
+                                        clearWorkspace();
+                                    })
+                                } else {
+                                    if (data.obstacle == 1) {
+                                        Swal.fire({
+                                            title: "Failed !",
+                                            text: "There was an obstacle preventing car from peforming command",
+                                            icon: "error"
+                                        }).then(response => {
+                                            document.getElementById('runCode').disabled = false;
+                                            document.getElementById('clearBtn').disabled = false;
+                                            document.getElementById('resetBtn').disabled = false;
+                                            clearWorkspace();
+                                        })
+                                    }
+                                    if (data.line == 1) {
+                                        Swal.fire({
+                                            title: "Failed !",
+                                            text: "Car went out of maze",
+                                            icon: "error"
+                                        }).then(response => {
+                                            document.getElementById('runCode').disabled = false;
+                                            document.getElementById('clearBtn').disabled = false;
+                                            document.getElementById('resetBtn').disabled = false;
+                                            clearWorkspace();
+                                        })
+                                    }
+                                }
+                            }
+                        });
+                    }, 5000)
+                })
             })
         } else {
             Swal.fire({
                 title: "Error !",
                 text: "Wrong Commands",
                 icon: "error",
-            }).then(response=>{
+            }).then(response => {
                 document.getElementById('runCode').disabled = false;
                 document.getElementById('clearBtn').disabled = false;
                 document.getElementById('resetBtn').disabled = false;

@@ -15,7 +15,7 @@ const tcpServer = net.createServer(function (client) {
     console.log(data)
     if (data == "Hello") {
       try {
-        const data = fs.readFileSync('MSP432 Files/commands.txt', 'utf8')
+        const data = fs.readFileSync('public/MSP432 Files/commands.txt', 'utf8')
         fs.truncateSync( 'MSP432 Files/commands.txt', 0 )
         client.end("FLRFLR")
       } catch (err) {

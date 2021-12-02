@@ -9,4 +9,5 @@ const Challenges=require('../controllers/challenges.controller')
 router.get('/',Challenges.challengeDashboardPage)
 router.get('/create',Challenges.createChallengePage)
 router.get('/attemptChallenge',Challenges.attemptChallengePage)
+router.post('/sendCommand',Challenges.sendCommand)
 module.exports = router;
