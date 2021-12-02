@@ -5,7 +5,35 @@ const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require("passport");
 var cookieParser = require('cookie-parser')
+const net = require('net')
+const fs = require('fs')
 
+const tcpServer = net.createServer(function (client) {
+  console.log("MSP432 Is Connected")
+  client.setEncoding('utf-8')
+  client.on('data', function (data) {
+    console.log(data)
+    if (data == "Hello") {
+      try {
+        const data = fs.readFileSync('MSP432 Files/commands.txt', 'utf8')
+        fs.truncateSync( 'MSP432 Files/commands.txt', 0 )
+        client.end("FLRFLR")
+      } catch (err) {
+        console.log(err)
+      }
+    } else {
+      // console.log(JSON.parse(data))
+
+    }
+  })
+  client.on('end', function () {
+    console.log("MSP432 Disconnected")
+  })
+
+});
+tcpServer.listen(5000,()=>{
+  console.log("TCP Server Listening on Port:5000")
+})
 
 const app = express();
 app.use(cookieParser())
@@ -29,9 +57,6 @@ mongoose.connect("mongodb+srv://Admin:admin@zoomaway.krhvi.mongodb.net/ZoomAway?
   useUnifiedTopology: true,
 });
 
-//Setting up the Environment
-const port = process.env.PORT;
-const host = process.env.HOST;
 
 //Setting up Challenges routes
 var challenges = require('./routes/challenges');
@@ -54,18 +79,7 @@ app.get('/dashboard', function (req, res) {
 });
 
 
-
-// app.get('/game', function (req, res) {
-//   res.render('game');
-// })
-
-// //Edit Challenges routes
-// app.get('/editChallenge', function (req, res) {
-//   res.render('editChallenge');
-// });
-
-
 app.listen(3000, () => {
   // print a message when the server starts listening
-  console.log("server starting on " + host + ":" + port);
+  console.log("HTTP Server starting on localhost:3000");
 });

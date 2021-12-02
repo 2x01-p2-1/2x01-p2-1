@@ -118,10 +118,13 @@ function runCode() {
     Blockly.JavaScript.INFINITE_LOOP_TRAP =
         'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
     var code = Blockly.JavaScript.workspaceToCode(workspace);
+    console.log(code)
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     try {
         if (code != '') {
             document.getElementById('runCode').disabled = true;
+            document.getElementById('clearBtn').disabled = true;
+            document.getElementById('resetBtn').disabled = true;
             runCodeDelay(code);
         }
     } catch (e) {
@@ -174,6 +177,7 @@ function resetMaze() {
  */
 function runCodeDelay(code) {
     let myArray = code.split('\n');
+    console.log(myArray);
     myArray.pop();
     for (let i = 0; i < myArray.length; i++) {
         if (i == 0) {
@@ -186,10 +190,34 @@ function runCodeDelay(code) {
     }
     setTimeout(() => {
         if (checkGoal()) {
-            playStageClear();
-            alert('Congratulations! You have successfully completed this stage.');
+            Swal.fire({
+                title: "Success !",
+                text: "Well Done ! The car will start moving now !!!",
+                icon: "success",
+            }).then(response=>{
+                Swal.close();
+                Swal.fire({
+                    text: "Please Wait for Car Response...",
+                    imageUrl: "https://www.boasnotas.com/img/loading2.gif",
+                    allowOutsideClick: false,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                    //icon: "success"
+                });
+                //Send data to Backend
+                
+            })
         } else {
-            alert('Please reset the workspace and try again.');
+            Swal.fire({
+                title: "Error !",
+                text: "Wrong Commands",
+                icon: "error",
+            }).then(response=>{
+                document.getElementById('runCode').disabled = false;
+                document.getElementById('clearBtn').disabled = false;
+                document.getElementById('resetBtn').disabled = false;
+                clearWorkspace();
+            })
         }
     }, 1000 + myArray.length * 1000);
 }

@@ -8,5 +8,5 @@ const Challenges=require('../controllers/challenges.controller')
 //Get All Challenge Page
 router.get('/',Challenges.challengeDashboardPage)
 router.get('/create',Challenges.createChallengePage)
-
+router.get('/attemptChallenge',Challenges.attemptChallengePage)
 module.exports = router;

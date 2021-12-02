@@ -8,4 +8,8 @@ exports.challengeDashboardPage=async(req,res)=>{
 exports.createChallengePage=async(req,res)=>{
     res.render('createChallenge');
 }
+exports.attemptChallengePage=async(req,res)=>{
+    res.render('attemptChallenge');
+}
+
 

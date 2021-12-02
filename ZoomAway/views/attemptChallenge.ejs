@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <%- include('common/head') %>
         <style>
@@ -28,8 +27,6 @@
         <script src="/js/definitions.js"></script>
         <script src="/js/customblocks.js"></script>
 </head>
-
-
 <body>
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <%- include('common/header') %>
@@ -42,8 +39,8 @@
 
             <p>
                 <button class="btn btn-success" id="runCode" onclick="runCode()">Run</button>
-                <button class="btn btn-danger" onclick="clearWorkspace()">Reset Workspace</button>
-                <button class="btn btn-danger" onclick="resetMaze()">Reset Maze</button>
+                <button class="btn btn-danger" id="clearBtn" onclick="clearWorkspace()">Reset Workspace</button>
+                <button class="btn btn-danger" id="resetBtn" onclick="resetMaze()">Reset Maze</button>
             </p>
 
             <div id="blocklyDiv" style="height: 480px; width: 600px;">
