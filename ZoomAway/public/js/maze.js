@@ -49,11 +49,6 @@ Game.prototype.populateMap = function () {
       let tileType = this.tileTypes[tileCode];
       // Go to createEl function to create a tile
       let tile = this.createEl(x, y, tileType);
-      tile.addEventListener('click', function () {
-        if (tile.className == 'wall') {
-          tile.className = 'floor';
-        }
-      })
       // Add to tile layer
       tiles.appendChild(tile);
     }
@@ -111,6 +106,21 @@ function setID (tiles) {
   }
 }
 
+// To craete the maze path
+function creathPath (tiles) {
+let mazePath = [];
+  for (var i = 0; i < 25; i++) {
+    let tile = tiles.childNodes[i];
+    tile.addEventListener('click', function () {
+      if (tile.className == 'wall') {
+        tile.className = 'floor';
+        mazePath.push(tile.id);
+        console.log(mazePath);
+      }
+    })
+  }
+}
+
 // Main 
 function init() {
   let challenge = new Game("game-container-1", mazes[0]);
@@ -119,6 +129,7 @@ function init() {
   challenge.placeSprite("goal");
   let playerSprite = challenge.placeSprite("player");
   challenge.player.el = playerSprite;
+  creathPath(tiles);
 }
 
 init();
