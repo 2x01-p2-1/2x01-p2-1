@@ -2,57 +2,42 @@
 <html>
 <head>
     <%- include('common/head') %>
-        <style>
-            .bd-placeholder-img {
-                font-size: 1.125rem;
-                text-anchor: middle;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                user-select: none;
-            }
-
-            @media (min-width: 768px) {
-                .bd-placeholder-img-lg {
-                    font-size: 3.5rem;
-                }
-            }
-        </style>
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/maze.css">
-        <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-        <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
-        <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
-        <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
-        <script src="https://unpkg.com/blockly/msg/en.js"></script>
-        <script src="/js/definitions.js"></script>
-        <script src="/js/customblocks.js"></script>
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/msg/en.js"></script>
+    <script src="/js/definitions.js"></script>
+    <script src="/js/customblocks.js"></script>
 </head>
 <body>
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <%- include('common/header') %>
+    <header style="position: sticky; top: 0; z-index: 999;">
+        <div class="section-title">
+            <h2>Challenge</h2>
+        </div>
     </header>
 
-        <main class="container pt-5">
-            <div class="d-flex mt-4">
-                <h1 class="h2">Challenges</h1>
+    <main>
+        <div class="container mt-5 mb-5 row" style="margin: auto;">
+            <div class="col-md-6">
+                <p>
+                    <button class="btn btn-success" id="runCode" onclick="runCode()">Run</button>
+                    <button class="btn btn-danger" id="clearBtn" onclick="clearWorkspace()">Reset Workspace</button>
+                    <button class="btn btn-danger" id="resetBtn" onclick="resetMaze()">Reset Maze</button>
+                </p>
+                <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
             </div>
-
-            <p>
-                <button class="btn btn-success" id="runCode" onclick="runCode()">Run</button>
-                <button class="btn btn-danger" id="clearBtn" onclick="clearWorkspace()">Reset Workspace</button>
-                <button class="btn btn-danger" id="resetBtn" onclick="resetMaze()">Reset Maze</button>
-            </p>
-
-            <div id="blocklyDiv" style="height: 480px; width: 600px;">
+            <div class="col-md-6 d-flex" style="margin: auto;">
                 <%- include('common/maze') %>
             </div>
-
-            <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-                <block type="move_left"></block>
-                <block type="move_right"></block>
-                <block type="move_up"></block>
-            </xml>
-        </main>
+        </div>
+        
+        <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+            <block type="move_left"></block>
+            <block type="move_right"></block>
+            <block type="move_up"></block>
+        </xml>
+    </main>
 
     <footer>
         <%- include('common/footer') %>

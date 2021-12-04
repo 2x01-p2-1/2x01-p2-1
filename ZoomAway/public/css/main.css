@@ -134,12 +134,12 @@ body {
   background-color: rgb(41, 41, 41);
   color: white;
 }
+
 .section-title h2 {
   font-size: 27px;
   font-weight: normal;
   padding: 1% 0%;
 }
-
 
 .create-form p, 
 .edit-form p {
@@ -150,7 +150,7 @@ body {
 .create-form textarea,
 .edit-form input,
 .edit-form textarea {
-  background: #eeeeee;
+  background: #e4e1e1;
 }
 
 .create-form textarea,

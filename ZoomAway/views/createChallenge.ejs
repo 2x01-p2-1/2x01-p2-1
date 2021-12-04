@@ -3,56 +3,10 @@
 
 <head>
     <%- include('common/head') %>
-    <style>
-        .game-container {
-    margin: 0px auto;
-}
-
-.game-map {
-    position: relative;
-}
-
-div.layer, div.layer div {
-    position: absolute;
-}
-
-#tiles div {
-    border: 1px solid grey;
-}
-
-.default .floor {
-    background-color: lightgrey;
-}
-
-.default .wall {
-    background-color: skyblue;
-}
-
-.goal {
-    background-image: url("https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-Flag-business-and-marketing-bearicons-outline-color-bearicons.png");
-}
-
-.player {
-    background-image: url('https://img.icons8.com/nolan/64/car.png');
-    transition: left 0.2s linear, top 0.2s linear;
-}
-
-/*
-   * player and goal are slightly smaller than tiles
-   */
-
-.player, .goal {
-    transform-origin: center;
-    transform: scale(0.85);
-}
-.maze {
-    height: 320px;
-}
-    </style>
 </head>
 
 <body style="background-color: white;">
-    <header>
+    <header style="position: sticky; top: 0; z-index: 999;">
         <div class="section-title">
             <h2>Create New Challenge</h2>
         </div>
@@ -65,7 +19,7 @@ div.layer, div.layer div {
             <form action="/"></form>
                 <div class="row">
                     <div class="form-group col-md-2">
-                        <p>Name</p>
+                        <p><b>Name</b></p>
                     </div>
                     <div class="form-group col-md-10">
                         <input type="text" name="challenge-name" class="form-control" id="challenge-name" placeholder="Challenge Name"/>
@@ -73,7 +27,7 @@ div.layer, div.layer div {
                 </div>
                 <div class="row">
                     <div class="form-group col-md-2">
-                        <p>Instruction</p>
+                        <p><b>Instruction</b></p>
                     </div>
                     <div class="form-group col-md-10">
                         <textarea class="form-control" name="instruction" id="instruction" placeholder="Instructions"></textarea>
@@ -82,11 +36,41 @@ div.layer, div.layer div {
                 <!-- Maze Section -->
                 <div class="row maze">
                     <div class="form-group col-md-2">
-                        <p>Maze Path</p>
+                        <p><b>Maze Path</b></p>
                     </div>
                     <div class="form-group col-md-10">
-                        <p>Click on the <b>black</b> tile below to create the path of the maze.</p>
+                        <p>Click on the black tile below to create the path of the maze.</p>
                         <%- include('common/maze') %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <p><b>Car Start Point</b></p>
+                    </div>
+                    <div class="form-group col-md-10 row">
+                        <div class="form-group col-md-6 row">
+                            <p class="col-md-4">x-axis</p>
+                            <input type="number" name="x-car" class="form-control col-md-7" id="x-car" min="0" max="4"/>
+                        </div>
+                        <div class="form-group col-md-6 row">
+                            <p class="col-md-4">y-axis</p>
+                            <input type="number" name="y-car" class="form-control col-md-7" id="y-car" min="0" max="4"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <p><b>Destination</b></p>
+                    </div>
+                    <div class="form-group col-md-10 row">
+                        <div class="form-group col-md-6 row">
+                            <p class="col-md-4">x-axis</p>
+                            <input type="number" name="x-dest" class="form-control col-md-7" id="x-dest" min="0" max="4"/>
+                        </div>
+                        <div class="form-group col-md-6 row">
+                            <p class="col-md-4">y-axis</p>
+                            <input type="number" name="y-dest" class="form-control col-md-7" id="y-dest" min="0" max="4"/>
+                        </div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -101,6 +85,7 @@ div.layer, div.layer div {
         <%- include('common/footer') %>
     </footer>
     <script src="/js/maze.js"></script>
+    <script src="/js/createChallenge.js"></script>
     <script>
         // <!-- Remove Sidebar -->
         $(document).ready(function(){
