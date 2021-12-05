@@ -27,24 +27,6 @@ mazes[0] = {
   theme: "default",
 };
 
-mazes[1] = {
-  map: [
-    [1, 1, 1, 0, 0],
-    [1, 1, 0, 0, 1],
-    [0, 0, 0, 1, 1],
-    [1, 0, 0, 0, 1],
-    [1, 0, 1, 0, 1],
-  ],
-  car: {
-    x: 1,
-    y: 4,
-  },
-  goal: {
-    x: 4,
-    y: 0,
-  },
-  theme: "default",
-};
 
 //  Creates a Game object using specified id and maze number
 function Game(id, maze) {

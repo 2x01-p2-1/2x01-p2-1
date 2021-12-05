@@ -12,6 +12,15 @@ exports.getAll=async(req,res)=>{
     }
 }
 
+exports.getOne=async(req,res)=>{
+    try{
+        const challenges=await Challenges.find({_id:req.params.id})
+        res.send(challenges[0])
+    }catch(err){
+        res.status(500).send(helper.formatMessage(500, err, "Internal Server Error"))
+    }
+}
+
 exports.createChallenge = async (req, res) => {
     try {
         const newChallenge = new Challenges({

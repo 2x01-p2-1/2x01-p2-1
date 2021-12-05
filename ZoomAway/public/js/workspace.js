@@ -205,7 +205,7 @@ function runCodeDelay(code) {
                     //icon: "success"
                 });
                 axios.post('/challenges/sendCommand', {
-                    commands: "FLRFLR"
+                    commands: $('#command').val()
                 }).then(response => {
                     var interval = setInterval(function () {
                         $.getJSON('/MSP432 Files/response.json', function (data) {
@@ -277,7 +277,28 @@ function playStageClear() {
 /*-------------------------------------------------
 |Game object for displaying the selected challenge |
 --------------------------------------------------*/
-function init() {
+async function init() {
+    const response=await axios.get('/challenges/'+$('#challengeId').val())
+    console.log(response)
+    $('#command').val(response.data.command)
+    mazes[1]={
+        map: [
+            response.data.maze.firstRow,
+            response.data.maze.secondRow,
+            response.data.maze.thirdRow,
+            response.data.maze.fourthRow,
+            response.data.maze.fifthRow,
+        ],
+        car: {
+            x:  response.data.maze.startPoint.x-1,
+            y: response.data.maze.startPoint.y-1,
+        },
+        goal: {
+            x:  response.data.maze.endPoint.x-1,
+            y: response.data.maze.endPoint.y-1,
+        },
+        theme: "default",
+    }
     let challenge = new Game("game-container-1", mazes[1]);
     challenge.populateMap();
     challenge.sizeUp();

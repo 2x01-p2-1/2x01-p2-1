@@ -9,6 +9,7 @@ const Challenges=require('../controllers/challenges.controller')
 router.get('/',Challenges.getAll)
 
 //Get One Challenge
+router.get('/:id',Challenges.getOne)
 
 //Send Command
 router.post('/sendCommand',Challenges.sendCommand)
