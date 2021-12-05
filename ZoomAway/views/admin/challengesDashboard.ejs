@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../common/head') %>
+</head>
+
+
+<body>
+    <header>
+        <%- include('../common/header') %>
+    </header>
+
+    <!--Main layout-->
+    <main>
+        <div class="firstDiv">
+            <div class="container pt-5">
+                <h1 class="d-flex mt-4 h2">Challenges</h1>
+                <table class="table mt-4 table-striped border border-dark challengesTable" id="challengeTable"
+                    style="background-color: #EAEDF1;">
+                    <thead class="table-dark">
+                        <tr class>
+                            <th class="col-md-10">List of Challenges</th>
+                            <th class="col-md-1"></th>
+                            <th class="col-md-1 text-center plus"><a href="createChallenge"><i
+                                        data-feather="plus"></i></a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../common/footer') %>
+    </footer>
+</body>
+<script src="/js/challengesDashboard.js"></script>
+<!-- Highlight current page -->
+<script>
+    $(document).ready(function () {
+        $("#dashboard").removeClass("currentPage");
+        $("#challenges").addClass("currentPage");
+    });
+</script>
+
+</html>

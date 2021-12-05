@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <%- include('common/head') %>
+    <%- include('../common/head') %>
 </head>
 
 <body style="background-color: white;">
@@ -16,32 +16,43 @@
     <main>
         <div class="create-form container mt-5 mb-5">  
             <!-- Create Form Section -->
-            <form action="/"></form>
+            <form>
                 <div class="row">
                     <div class="form-group col-md-2">
-                        <p><b>Name</b></p>
+                        <p><b>Challenge Name</b></p>
                     </div>
                     <div class="form-group col-md-10">
                         <input type="text" name="challenge-name" class="form-control" id="challenge-name" placeholder="Challenge Name"/>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="form-group col-md-2">
                         <p><b>Instruction</b></p>
                     </div>
                     <div class="form-group col-md-10">
-                        <textarea class="form-control" name="instruction" id="instruction" placeholder="Instructions"></textarea>
+                        <textarea class="form-control" name="instruction" id="instruction" placeholder="Instructions for the Students"></textarea>
                     </div>
                 </div>
+                <div class="row mt-3">
+                    <div class="form-group col-md-2">
+                        <p><b>Commands</b></p>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <input type="text" name="challenge-name" class="form-control" id="command" placeholder="These will be the commands that will be sent to the car when the students successfully complete the maze."/>
+                        <div class="form-text">Available Commands are: F for Forward, L for Left, R for Right</div>
+                        <div class="form-text">Example: FLR Represents Forward, Left, Right</div>
+                    </div>
+                   
+                </div>
                 <!-- Maze Section -->
-                <div class="row maze">
+                <div class="row maze mt-5">
                     <div class="form-group col-md-2">
                         <p><b>Maze Path</b></p>
                     </div>
                     <div class="form-group col-md-10 row">
                         <div class="form-group col-lg-6">
                             <p>Click on the black tile below to create the path of the maze.</p>
-                            <%- include('common/maze') %>
+                            <%- include('../common/maze') %>
                         </div>
                         <div class="form-group col-lg-6" style="position: relative;">
                             <p style="text-decoration: underline; text-align: center; position: relative;">Guide for x and y axis</p>
@@ -80,17 +91,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex justify-content-end">
-                    <button type="cancel" class="btn btn-dark cancel">Cancel</button> &nbsp&nbsp
-                    <button type="create" class="btn btn-dark submit" onclick="createBtn()">Create</button>
+                <div class="mt-4 d-flex justify-content-end">
+                    <button type="cancel" class="btn btn-danger" onclick="window.location.href='/admin/challengesDashboard'">Cancel</button> &nbsp&nbsp
+                    <button type="button" class="btn btn-success " onclick="createBtn()">Create</button>
                 </div>
             </form>
         </div>
     </main>
 
-    <footer>
-        <%- include('common/footer') %>
-    </footer>
+
     <script src="/js/maze.js"></script>
     <script src="/js/createChallenge.js"></script>
     <script>

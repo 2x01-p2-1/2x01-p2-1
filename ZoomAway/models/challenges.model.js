@@ -4,10 +4,18 @@ const challengeSchema = mongoose.Schema({
     challengeName:{
         type:String
     },
-    instructions:{
+    instruction:{
         type:String
     },
-    mazeObj:{
+    command:{
+        type:String
+    },
+    maze:{
+        firstRow:[Number],
+        secondRow:[Number],
+        thirdRow:[Number],
+        fourthRow:[Number],
+        fifthRow:[Number],
         startPoint:{
             x:{
                 type:Number
