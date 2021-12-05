@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<%- include('../common/head') %>
+<body>
+    <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center gx-0 min-vh-100">
+            <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11 mb-5">
+                <h1 class="mb-0 fw-bold text-center">ZoomAway Admin</h1>
+                <p class="mb-6 text-center text-muted">Please Login To Your Account</p>
+                <p id="errMsg" class="mb-6 text-center text-danger" hidden>
+                    Invalid Credentials
+                </p>
+                <form class="form-body mt-6">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label class="form-label">Email</label>
+                            <div class="ms-auto position-relative">
+                                <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
+                                        class="bi bi-person-circle"></i></div>
+                                <input type="email" class="form-control radius-30 ps-5" id="email" placeholder="Email"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Password</label>
+                            <div class="ms-auto position-relative">
+                                <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
+                                        class="bi bi-lock-fill"></i></div>
+                                <input type="password" class="form-control radius-30 ps-5" id="password" name="password"
+                                    placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                        </div>
+                        <div class="col-12">
+                            <div class="d-grid">
+                                <button id="submitBtn" type="button" class="btn btn-primary radius-30"
+                                    style="background-color: #0d667c;">Sign In</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+</script>
