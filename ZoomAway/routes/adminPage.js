@@ -4,9 +4,28 @@ const router = express.Router();
 var itemRouter = express.Router({ strict: true });
 
 router.get('/createChallenge',(req,res)=>{
-    res.render('admin/createChallenge')
+    if(req.isAuthenticated()){
+        res.render('admin/createChallenge')
+    }else{
+        res.render('admin/login')
+    }
 })
+
 router.get('/challengesDashboard',(req,res)=>{
-    res.render('admin/challengesDashboard')
+    if(req.isAuthenticated()){
+        res.render('admin/challengesDashboard')
+    }else{
+        res.render('admin/login')
+    }
+    
+})
+
+router.get('/login',(req,res)=>{
+    res.render("admin/login")
+})
+
+router.get('/logout',(req,res)=>{
+    req.logOut();
+    res.redirect('/')
 })
 module.exports = router;

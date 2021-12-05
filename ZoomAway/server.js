@@ -38,6 +38,10 @@ app.use('/',student);
 var admin=require('./routes/adminPage')
 app.use('/admin',admin);
 
+//Setting Up Routes For Account
+var login = require('./routes/login');
+app.use('/login', login);
+
 
 //Setting up Challenges routes
 var challenges = require('./routes/challenges');

@@ -8,6 +8,7 @@ router.get('/',(req,res)=>{
 })
 
 router.get('/attemptChallenge/:id',(req,res)=>{
+    req.logOut()
     res.render('attemptChallenge',{
         challengeId:req.params.id
     })

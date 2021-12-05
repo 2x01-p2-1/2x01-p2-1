@@ -5,6 +5,8 @@ var itemRouter = express.Router({ strict: true });
 router.use('/:challenges', itemRouter);
 
 const Challenges=require('../controllers/challenges.controller')
+const Authenticate=require('../controllers/authentication.controller')
+
 //Get All Challenge
 router.get('/',Challenges.getAll)
 
@@ -15,8 +17,9 @@ router.get('/:id',Challenges.getOne)
 router.post('/sendCommand',Challenges.sendCommand)
 
 //Create One Challenge
-router.post('/',Challenges.createChallenge)
+router.post('/',Authenticate.checkAuthenticated(),Challenges.createChallenge)
 
 //Delete Challenge
-router.delete('/:id',Challenges.deleteChallenge)
+router.delete('/:id',Authenticate.checkAuthenticated(),Challenges.deleteChallenge)
+
 module.exports = router;
