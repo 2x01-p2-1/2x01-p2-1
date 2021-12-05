@@ -38,9 +38,15 @@
                     <div class="form-group col-md-2">
                         <p><b>Maze Path</b></p>
                     </div>
-                    <div class="form-group col-md-10">
-                        <p>Click on the black tile below to create the path of the maze.</p>
-                        <%- include('common/maze') %>
+                    <div class="form-group col-md-10 row">
+                        <div class="form-group col-lg-6">
+                            <p>Click on the black tile below to create the path of the maze.</p>
+                            <%- include('common/maze') %>
+                        </div>
+                        <div class="form-group col-lg-6" style="position: relative;">
+                            <p style="text-decoration: underline; text-align: center; position: relative;">Guide for x and y axis</p>
+                            <img src="/img/axes.png" alt="axes-guide">
+                        </div>
                         <p>Indicate 1 to 5 value in the x-axis and y-axis input for the Car Start Point and Destination.</p>
                     </div>
                 </div>
