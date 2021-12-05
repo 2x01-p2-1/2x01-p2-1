@@ -14,10 +14,10 @@ router.get('/',Challenges.getAll)
 router.get('/:id',Challenges.getOne)
 
 //Send Command
-router.post('/sendCommand',Challenges.sendCommand)
+router.post('/sendCommand',Challenges.validateInput('sendCommand'),Challenges.sendCommand)
 
 //Create One Challenge
-router.post('/',Authenticate.checkAuthenticated(),Challenges.createChallenge)
+router.post('/',Authenticate.checkAuthenticated(),Challenges.validateInput('createChallenge'),Challenges.createChallenge)
 
 //Delete Challenge
 router.delete('/:id',Authenticate.checkAuthenticated(),Challenges.deleteChallenge)

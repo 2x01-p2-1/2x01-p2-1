@@ -72,6 +72,7 @@ async function createBtn() {
             window.location.href="/admin/challengesDashboard"
         })
     } catch (err) {
+        console.log(err.msg)
         Swal.fire({
             icon: 'error',
             title: 'Oops...',

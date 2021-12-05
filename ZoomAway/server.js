@@ -1,10 +1,9 @@
 const express = require('express');
-const dotenv = require('dotenv').config();
 const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require("passport");
-var cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 const net = require('net')
 const fs = require('fs')
 
@@ -66,7 +65,7 @@ const tcpServer = net.createServer(function (client) {
       try {
         const data = fs.readFileSync('public/MSP432 Files/commands.txt', 'utf8')
         fs.truncateSync( 'MSP432 Files/commands.txt', 0 )
-        client.end("FLRFLR")
+        client.end(data)
       } catch (err) {
         console.log(err)
       }

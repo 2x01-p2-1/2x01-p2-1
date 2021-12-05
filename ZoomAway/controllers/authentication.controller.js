@@ -52,7 +52,7 @@ passport.deserializeUser(async function (_id, done) {
 /**********************
  * Function to Check if User is Authenticated
  *********************/
- exports.checkAuthenticated = function (role) {
+ exports.checkAuthenticated = function () {
     return function (req, res, next) {
         if(req.isAuthenticated()){
             next()
