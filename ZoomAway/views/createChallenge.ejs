@@ -41,6 +41,7 @@
                     <div class="form-group col-md-10">
                         <p>Click on the black tile below to create the path of the maze.</p>
                         <%- include('common/maze') %>
+                        <p>Indicate 1 to 5 value in the x-axis and y-axis input for the Car Start Point and Destination.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -50,11 +51,11 @@
                     <div class="form-group col-md-10 row">
                         <div class="form-group col-md-6 row">
                             <p class="col-md-4">x-axis</p>
-                            <input type="number" name="x-car" class="form-control col-md-7" id="x-car" min="0" max="4"/>
+                            <input type="number" name="x-car" class="form-control col-md-7" id="x-car" onchange="updateCarPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
                         </div>
                         <div class="form-group col-md-6 row">
                             <p class="col-md-4">y-axis</p>
-                            <input type="number" name="y-car" class="form-control col-md-7" id="y-car" min="0" max="4"/>
+                            <input type="number" name="y-car" class="form-control col-md-7" id="y-car" onchange="updateCarPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
                         </div>
                     </div>
                 </div>
@@ -65,17 +66,17 @@
                     <div class="form-group col-md-10 row">
                         <div class="form-group col-md-6 row">
                             <p class="col-md-4">x-axis</p>
-                            <input type="number" name="x-dest" class="form-control col-md-7" id="x-dest" min="0" max="4"/>
+                            <input type="number" name="x-dest" class="form-control col-md-7" id="x-dest" oninput="updateDestPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
                         </div>
                         <div class="form-group col-md-6 row">
                             <p class="col-md-4">y-axis</p>
-                            <input type="number" name="y-dest" class="form-control col-md-7" id="y-dest" min="0" max="4"/>
+                            <input type="number" name="y-dest" class="form-control col-md-7" id="y-dest" oninput="updateDestPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
                         </div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button type="cancel" class="btn btn-dark cancel">Cancel</button> &nbsp&nbsp
-                    <button type="create" class="btn btn-dark submit">Create</button>
+                    <button type="create" class="btn btn-dark submit" onclick="createBtn()">Create</button>
                 </div>
             </form>
         </div>

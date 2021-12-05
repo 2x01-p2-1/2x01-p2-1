@@ -1,40 +1,62 @@
+/*---------------------------------
+|All functions related to the maze|
+----------------------------------*/
+
 // Stores a maze for each challenges
 let mazes = [];
+let floorArr = [];
 
-// Initialise and declare maze variables
-// Wall = 1; Path = 0
+// Initialise and declare maze variables [Wall = 1; Path = 0]
+// Template for create challenge maze
 mazes[0] = {
   map: [
-    [1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
   ],
-  player: {
-    x: 0,
-    y: 0,
+  car: {
+      x: 10,
+      y: 10,
   },
   goal: {
-    x: 0,
-    y: 4,
+      x: 10,
+      y: 10,
   },
   theme: "default",
 };
 
-//  Creates a Game object using specified id and maze number.
-//  @param {string} id
-//  @param {number} maze
+mazes[1] = {
+  map: [
+    [1, 1, 1, 0, 0],
+    [1, 1, 0, 0, 1],
+    [0, 0, 0, 1, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 1, 0, 1],
+  ],
+  car: {
+    x: 1,
+    y: 4,
+  },
+  goal: {
+    x: 4,
+    y: 0,
+  },
+  theme: "default",
+};
+
+//  Creates a Game object using specified id and maze number
 function Game(id, maze) {
   this.el = document.getElementById(id);
   this.tileTypes = ["floor", "wall"];
   this.tileDim = 64;
-  // Inherit the maze's properties: map, player position, goal position
+  // Inherit the maze's properties: map, car position, goal position
   this.map = maze.map;
   this.theme = maze.theme;
-  this.player = { ...maze.player };
+  this.car = { ...maze.car };
   this.goal = { ...maze.goal };
-  this.player.el = null;
+  this.car.el = null;
 }
 
 // Function that populates the grid based on the 2d array of the specified maze
@@ -53,20 +75,17 @@ Game.prototype.populateMap = function () {
       tiles.appendChild(tile);
     }
   }
-  setID(tiles);
   return tiles;
 };
 
-// Function that place sprite based on the specified x and y values of the player and goal
-// @param {string} type [Player or Goal]
-// @returns divElement
+// Function that place sprite based on the specified x and y values of the car and goal
 Game.prototype.placeSprite = function (type) {
-  // To get the x and y value of the Player or Goal
+  // To get the x and y value of the Car or Goal
   let x = this[type].x;
   let y = this[type].y;
   // Go to createEl function to craete a sprite
   let sprite = this.createEl(x, y, type);
-  // Set an id to player or goal for the div element 
+  // Set an id to car or goal for the div element 
   sprite.id = type;
   sprite.style.borderRadius = this.tileDim + "px";
   let layer = document.getElementById("sprites");
@@ -76,10 +95,6 @@ Game.prototype.placeSprite = function (type) {
 };
 
 // Create div element for the tiles and sprites with dimensions 
-// @param {number} x
-// @param {number} y
-// @param {string} type 
-// @returns divElement
 Game.prototype.createEl = function (x, y, type) {
   let el = document.createElement("div");
   el.className = type;
@@ -98,38 +113,61 @@ Game.prototype.sizeUp = function() {
   map.style.width = this.map[0].length * this.tileDim + 'px';
 };
 
-// Set the ID for each tile from 0-24
-function setID (tiles) {
+// Set the ID from 1-25 and onclick button for each tile
+function setAttr (tiles) {
   for (var i = 0; i < 25; i++) {
     let tile = tiles.childNodes[i];
-    tile.id = i;
+    tile.id = i+1;
+    tile.setAttribute("onclick", "tilesBtn(this.id)");
   }
 }
 
-// To craete the maze path
-function creathPath (tiles) {
-let mazePath = [];
-  for (var i = 0; i < 25; i++) {
-    let tile = tiles.childNodes[i];
-    tile.addEventListener('click', function () {
-      if (tile.className == 'wall') {
-        tile.className = 'floor';
-        mazePath.push(tile.id);
-        console.log(mazePath);
+// Onclick button for each tile
+function tilesBtn(id) {
+  if (document.getElementById(id).className == 'wall') {
+    document.getElementById(id).className = 'floor';
+    floorArr.push(id)
+  } else {
+    document.getElementById(id).className = 'wall';
+    floorArr = floorArr.filter(item => item !== id)
+  } 
+  console.log(floorArr);
+}
+
+// Convert to Map 2D Array (5x5)
+function convert2DMap() {
+  mapArr = new Array(5); //cols
+  // Loop to create 2D map array using 1D array
+  for (var i = 0; i < 5; i++) {
+    mapArr[i] = new Array(5); //rows
+  }
+  // Loop to initialize map array elements from 1-25 id
+  var num = 1;
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
+      mapArr[i][j] = num++;
+    }
+  }
+  // Match floorArr ids with the mapArr, if same, set to 0
+  for (var i = 0; i < mapArr.length; i++) {
+    // Current array from array of mapArr, which is array to search  
+    let curArr_to_be_searched = mapArr[i];
+    for (var j = 0; j < curArr_to_be_searched.length; j++) {
+      for (var k = 0; k < floorArr.length; k++) {
+        if (curArr_to_be_searched[j] == floorArr[k]) {
+          curArr_to_be_searched[j] = 0;
+          break;
+        } 
+      };
+    }
+  }
+  // Set non zero to 1
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
+      if (mapArr[i][j] != 0) {
+        mapArr[i][j] = 1;
       }
-    })
+    }
   }
+  return mapArr;
 }
-
-// Main 
-function init() {
-  let challenge = new Game("game-container-1", mazes[0]);
-  let tiles = challenge.populateMap();
-  challenge.sizeUp();
-  challenge.placeSprite("goal");
-  let playerSprite = challenge.placeSprite("player");
-  challenge.player.el = playerSprite;
-  creathPath(tiles);
-}
-
-init();

@@ -1,5 +1,6 @@
 .game-container {
     margin: 0px auto;
+    margin-bottom: 2%;
 }
 
 .game-map {
@@ -15,7 +16,7 @@ div.layer, div.layer div {
 }
 
 .default .floor {
-    background-color: rgb(214, 233, 214);
+    background-color: rgb(229, 214, 233);
 }
 
 .default .wall {
@@ -26,12 +27,12 @@ div.layer, div.layer div {
     background-image: url("https://img.icons8.com/external-bearicons-outline-color-bearicons/64/000000/external-Flag-business-and-marketing-bearicons-outline-color-bearicons.png");
 }
 
-.player {
+.car {
     background-image: url('https://img.icons8.com/nolan/64/car.png');
     transition: left 0.1s linear, top 0.1s linear;
 }
 
-.player, .goal {
+.car, .goal {
     transform-origin: center;
     transform: scale(0.85);
 }

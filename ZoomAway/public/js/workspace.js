@@ -3,18 +3,18 @@ var workspace = Blockly.inject('blocklyDiv', {
     trashcan: true
 });
 
-function checkRight(player) {
+function checkRight(car) {
     let wallArray = document.getElementsByClassName('wall');
 
-    let playerTop = parseInt(player.style.top, 10);
-    let playerLeft = parseInt(player.style.left, 10);
+    let carTop = parseInt(car.style.top, 10);
+    let carLeft = parseInt(car.style.left, 10);
 
     for (let i = 0; i < wallArray.length; i++) {
         let wallTop = parseInt(wallArray[i].style.top);
-        if (playerTop == wallTop) {
+        if (carTop == wallTop) {
             let wallLeft = parseInt(wallArray[i].style.left);
             wallLeft -= 64;
-            if (playerLeft == wallLeft) {
+            if (carLeft == wallLeft) {
                 return true;
             }
         }
@@ -22,18 +22,18 @@ function checkRight(player) {
     return false;
 }
 
-function checkLeft(player) {
+function checkLeft(car) {
     let wallArray = document.getElementsByClassName('wall');
 
-    let playerTop = parseInt(player.style.top, 10);
-    let playerLeft = parseInt(player.style.left, 10);
+    let carTop = parseInt(car.style.top, 10);
+    let carLeft = parseInt(car.style.left, 10);
 
     for (let i = 0; i < wallArray.length; i++) {
         let wallTop = parseInt(wallArray[i].style.top);
-        if (playerTop == wallTop) {
+        if (carTop == wallTop) {
             let wallLeft = parseInt(wallArray[i].style.left);
             wallLeft += 64;
-            if (playerLeft == wallLeft) {
+            if (carLeft == wallLeft) {
                 return true;
             }
         }
@@ -41,18 +41,18 @@ function checkLeft(player) {
     return false;
 }
 
-function checkTop(player) {
+function checkTop(car) {
     let wallArray = document.getElementsByClassName('wall');
 
-    let playerTop = parseInt(player.style.top, 10);
-    let playerLeft = parseInt(player.style.left, 10);
+    let carTop = parseInt(car.style.top, 10);
+    let carLeft = parseInt(car.style.left, 10);
 
     for (let i = 0; i < wallArray.length; i++) {
         let wallLeft = parseInt(wallArray[i].style.left);
-        if (playerLeft == wallLeft) {
+        if (carLeft == wallLeft) {
             let wallTop = parseInt(wallArray[i].style.top);
             wallTop += 64;
-            if (playerTop == wallTop) {
+            if (carTop == wallTop) {
                 return true;
             }
         }
@@ -61,46 +61,46 @@ function checkTop(player) {
 }
 
 function move_up() {
-    let player = document.getElementById('player');
-    if (checkTop(player)) {
+    let car = document.getElementById('car');
+    if (checkTop(car)) {
         console.log('OOF!');
     } else {
-        let top = parseInt(player.style.top, 10);
+        let top = parseInt(car.style.top, 10);
         top -= 64;
         if (top < 0) {
             console.log('Out of bounds!');
         } else {
-            player.style.top = top + 'px';
+            car.style.top = top + 'px';
         }
     }
 }
 
 function move_right() {
-    let player = document.getElementById('player');
-    if (checkRight(player)) {
+    let car = document.getElementById('car');
+    if (checkRight(car)) {
         console.log('OOF!');
     } else {
-        let left = parseInt(player.style.left, 10);
+        let left = parseInt(car.style.left, 10);
         left += 64;
         if (left < 0) {
             console.log('Out of bounds!');
         } else {
-            player.style.left = left + 'px';
+            car.style.left = left + 'px';
         }
     }
 }
 
 function move_left() {
-    let player = document.getElementById('player');
-    if (checkLeft(player)) {
+    let car = document.getElementById('car');
+    if (checkLeft(car)) {
         console.log('OOF!');
     } else {
-        let left = parseInt(player.style.left, 10);
+        let left = parseInt(car.style.left, 10);
         left -= 64;
         if (left < 0) {
             console.log('Out of bounds!');
         } else {
-            player.style.left = left + 'px';
+            car.style.left = left + 'px';
         }
     }
 }
@@ -133,17 +133,17 @@ function runCode() {
 }
 
 function checkGoal() {
-    let player = document.getElementById('player');
+    let car = document.getElementById('car');
     let goal = document.getElementById('goal');
 
-    let playerTop = parseInt(player.style.top, 10);
-    let playerLeft = parseInt(player.style.left, 10);
+    let carTop = parseInt(car.style.top, 10);
+    let carLeft = parseInt(car.style.left, 10);
 
     let goalTop = parseInt(goal.style.top, 10);
     let goalLeft = parseInt(goal.style.left, 10);
 
-    if (playerLeft == goalLeft) {
-        if (playerTop == goalTop) {
+    if (carLeft == goalLeft) {
+        if (carTop == goalTop) {
             return true;
         }
     }
@@ -155,11 +155,11 @@ function checkGoal() {
  */
 function resetMaze() {
     document.getElementById('runCode').removeAttribute('disabled');
-    let player = document.getElementById('player');
+    let car = document.getElementById('car');
     let floor = document.getElementsByClassName('floor');
     let wall = document.getElementsByClassName('wall');
     let goal = document.getElementById('goal');
-    player.parentNode.removeChild(player);
+    car.parentNode.removeChild(car);
     while (floor.length > 0) {
         floor[0].parentNode.removeChild(floor[0]);
     }
@@ -273,3 +273,17 @@ function playStageClear() {
     let audio = new Audio('../audio/stage_clear.mp3');
     audio.play();
 }
+
+/*-------------------------------------------------
+|Game object for displaying the selected challenge |
+--------------------------------------------------*/
+function init() {
+    let challenge = new Game("game-container-1", mazes[1]);
+    challenge.populateMap();
+    challenge.sizeUp();
+    challenge.placeSprite("goal");
+    let carSprite = challenge.placeSprite("car");
+    challenge.car.el = carSprite;
+}
+
+init();
