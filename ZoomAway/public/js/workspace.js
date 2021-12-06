@@ -192,7 +192,7 @@ function runCodeDelay(code) {
         if (checkGoal()) {
             Swal.fire({
                 title: "Success !",
-                text: "Well Done ! The car will start moving now !!!",
+                text: "Well Done! The car will start moving now!!!",
                 icon: "success"
             }).then(result => {
                 Swal.close();
@@ -212,42 +212,30 @@ function runCodeDelay(code) {
                             if (jQuery.isEmptyObject(data)) {
                                 console.log("Empty Object");
                             } else {
+                                console.log(data)
                                 clearInterval(interval)
                                 Swal.close();
                                 if (data.success == 1) {
                                     Swal.fire(`
-                                    Distance Travelled : ${data.distance}
-                                    Time Taken:${data.timeTaken}`).then(response => {
+                                    Wheel Encoder : ${data.wheelEncoder}
+                                    Time Taken:${data.timeTaken}`)
+                                    .then(response => {
                                         document.getElementById('runCode').disabled = false;
                                         document.getElementById('clearBtn').disabled = false;
                                         document.getElementById('resetBtn').disabled = false;
                                         clearWorkspace();
                                     })
                                 } else {
-                                    if (data.obstacle == 1) {
-                                        Swal.fire({
-                                            title: "Failed !",
-                                            text: "There was an obstacle preventing car from peforming command",
-                                            icon: "error"
-                                        }).then(response => {
-                                            document.getElementById('runCode').disabled = false;
-                                            document.getElementById('clearBtn').disabled = false;
-                                            document.getElementById('resetBtn').disabled = false;
-                                            clearWorkspace();
-                                        })
-                                    }
-                                    if (data.line == 1) {
-                                        Swal.fire({
-                                            title: "Failed !",
-                                            text: "Car went out of maze",
-                                            icon: "error"
-                                        }).then(response => {
-                                            document.getElementById('runCode').disabled = false;
-                                            document.getElementById('clearBtn').disabled = false;
-                                            document.getElementById('resetBtn').disabled = false;
-                                            clearWorkspace();
-                                        })
-                                    }
+                                    Swal.fire({
+                                        title: "Failed!",
+                                        text: "Something Went Wrong!",
+                                        icon: "error"
+                                    }).then(response=>{
+                                        document.getElementById('runCode').disabled = false;
+                                        document.getElementById('clearBtn').disabled = false;
+                                        document.getElementById('resetBtn').disabled = false;
+                                        clearWorkspace();
+                                    })
                                 }
                             }
                         });

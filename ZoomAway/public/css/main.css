@@ -141,11 +141,6 @@ body {
   padding: 1% 0%;
 }
 
-.create-form p, 
-.edit-form p {
-  font-size: large;
-}
-
 .create-form input,
 .create-form textarea,
 .edit-form input,

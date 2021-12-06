@@ -39,21 +39,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="form-group col-md-2">
-                        <p><b>Commands</b></p>
-                    </div>
-                    <div class="form-group col-md-10">
-                        <input type="text" name="challenge-name" class="form-control" id="command" placeholder="These will be the commands that will be sent to the car when the students successfully complete the maze."/>
-                        <div class="form-text">Available Commands are: F for Forward, L for Left, R for Right</div>
-                        <div class="form-text">Example: FLR Represents Forward, Left, Right</div>
-                        <p class="commandBlank" style="color: red; display: none;">
-                            Command is required.
-                        </p>
-                    </div>
-                </div>
                 <!-- Maze Section -->
-                <div class="row maze mt-5">
+                <div class="row maze mt-3">
                     <div class="form-group col-md-2">
                         <p><b>Maze Path</b></p>
                     </div>
@@ -66,10 +53,24 @@
                             <p style="text-decoration: underline; text-align: center; position: relative;">Guide for x and y axis</p>
                             <img src="/img/axes.png" alt="axes-guide">
                         </div>
-                        <p>Indicate 1 to 5 value in the x-axis and y-axis input for the Car Start Point and Destination.</p>
                     </div>
                 </div>
-                <div class="row">
+                <!-- Command Section -->
+                <div class="row mt-3">
+                    <div class="form-group col-md-2">
+                        <p><b>Commands</b></p>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <input type="text" name="challenge-name" class="form-control" id="command" placeholder="These will be the commands that will be sent to the car when the students successfully complete the maze."/>
+                        <div class="form-text">Available Commands are: F for Forward, L for Left, R for Right</div>
+                        <div class="form-text">Example: FLR Represents Forward, Left, Right</div>
+                        <p class="commandBlank" style="color: red; display: none;">
+                            Command is required.
+                        </p>
+                        <p class="mt-4">Indicate 1 to 5 value in the x-axis and y-axis input for the Car Start Point and Destination.</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
                     <div class="form-group col-md-2">
                         <p><b>Car Start Point</b></p>
                     </div>
