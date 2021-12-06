@@ -8,15 +8,19 @@ Thus, the purpose of this project is to provide teachers with an intuitive metho
 keep it straight to the point of how to access the entry point of the web app
 any necessary dependencies to run it
 
-Step 1: Clone from Github main branch using "......" on the directory of your choice
+Step 1: Clone from Github main branch using "......" to the directory of your choice
 
-Step 2: Cd to zoomaway using "cd zoomaway"
+Step 2: Open Command Prompt
 
-Step 3: Type "npm install" in the cmd 
+Step 3: Cd to the cloned main branch using "cd <cloned main branch>"
 
-Step 4: Type "npm start" in the cmd 
+Step 3: Cd to zoomaway using "cd zoomaway"
 
-Step 5: Type localhost:3000 on a web browser to access the website
+Step 4: Type "npm install" in the cmd 
+
+Step 5: Type "npm start" in the cmd 
+
+Step 6: Type localhost:3000 on a web browser to access the website
 
 # “Development Workflow” section
 provide a brief yet sufficiently comprehensive description of your team’s workflow using git and GitHub features
