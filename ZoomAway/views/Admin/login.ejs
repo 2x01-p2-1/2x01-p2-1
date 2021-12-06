@@ -1,41 +1,72 @@
 <!doctype html>
 <html lang="en">
 <%- include('../common/head') %>
+
 <body>
+    <header>
+        <!-- Navbar Student-->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top studentNav">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarMenu"
+                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Brand -->
+                <a class="navbar-brand">
+                    ZoomAway
+                </a>
+                <!-- Icon -->
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    <button type="button" class="btn btn-secondary toAdminBtn" onclick="window.location.href='/'" style="background-color: rgb(68, 67, 67); border: none;">Back
+                        to Home</button>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp
+                    <span class="navbar-text" style="font-size: larger;">
+                        Admin
+                    </span>
+                </ul>
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
     <div class="container d-flex flex-column">
         <div class="row align-items-center justify-content-center gx-0 min-vh-100">
-            <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11 mb-5">
+            <div class="col-12 col-md-5 col-lg-4 py-8 py-md-11 mb-5" style="background-color: rgb(255, 255, 255); padding: 5%; width: 50%;">
                 <h1 class="mb-0 fw-bold text-center">ZoomAway Admin</h1>
                 <p class="mb-6 text-center text-muted">Please Login To Your Account</p>
                 <p id="errMsg" class="mb-6 text-center text-danger" hidden>
                     Invalid Credentials
                 </p>
-                <form class="form-body mt-6">
+                <form class="form-body">
                     <div class="row g-3">
                         <div class="col-12">
                             <label class="form-label">Email</label>
                             <div class="ms-auto position-relative">
                                 <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
                                         class="bi bi-person-circle"></i></div>
-                                <input type="email" class="form-control radius-30 ps-5" id="email" placeholder="Email"
-                                    required>
+                                <input style="background: #ebe9e9;" type="email" class="form-control radius-30 ps-5" id="email" placeholder="Email" onfocus="this.value=''">
                             </div>
+                            <p class="emailBlank" style="color: red; text-align: center; display: none;">
+                                Email is required.
+                            </p>
                         </div>
                         <div class="col-12">
                             <label class="form-label">Password</label>
                             <div class="ms-auto position-relative">
                                 <div class="position-absolute top-50 translate-middle-y search-icon px-3"><i
                                         class="bi bi-lock-fill"></i></div>
-                                <input type="password" class="form-control radius-30 ps-5" id="password" name="password"
-                                    placeholder="Password" required>
+                                <input style="background: #ebe9e9;" type="password" class="form-control radius-30 ps-5" id="password" name="password" placeholder="Password" onfocus="this.value=''">
                             </div>
+                            <p class="passBlank" style="color: red; text-align: center; display: none;">
+                                Password is required.
+                            </p>
                         </div>
                         <div class="col-6">
                         </div>
                         <div class="col-12">
                             <div class="d-grid">
-                                <button id="submitBtn" type="button" class="btn btn-primary radius-30"
-                                    style="background-color: #0d667c;">Sign In</button>
+                                <button id="submitBtn" type="button" class="btn btn-dark radius-30">Sign In</button>
                             </div>
                         </div>
                     </div>
@@ -44,8 +75,6 @@
         </div>
     </div>
 </body>
+
 </html>
-
-<script>
-
-</script>
+<script src="/js/login.js"></script>
