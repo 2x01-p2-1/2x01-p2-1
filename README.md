@@ -25,6 +25,8 @@ Step 6: Type localhost:3000 in a web browser to access the website
 # “Development Workflow” section
 provide a brief yet sufficiently comprehensive description of your team’s workflow using git and GitHub features
 
+For branch management, our team decided to create the branches based on the various features that the website had to offer. This allows for a more orangized allocation of task to each member from the features available. After the completion of the website, we merge the the all the branches to main for intergation of all features??????
+
 # “UAT” section
 include an updated use case diagram and system state diagram if there are changes made based on M2. Highlight the changes clearly.
 
