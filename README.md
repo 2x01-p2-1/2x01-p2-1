@@ -33,7 +33,7 @@ Upon the completion of the development of the features, all the branches would b
 include an updated use case diagram and system state diagram if there are changes made based on M2. Highlight the changes clearly.
 
 Use Case Diagram
-![Updated Use case for milestone 2 (1)](https://user-images.githubusercontent.com/71886838/144852492-42b711ff-73c2-42e6-bfd0-7f5317e7c528.png)
+![Updated Use case for milestone 2 (2)](https://user-images.githubusercontent.com/71886838/144852811-a843f8ab-6516-436a-83cf-9770a2d8d0dd.png)
 
 System State Diagram
 ![System State Diagram - Page 2 (1)](https://user-images.githubusercontent.com/71886838/144845604-4e5d8bf6-db03-4bdd-9382-5b0b7b0330cd.png)
