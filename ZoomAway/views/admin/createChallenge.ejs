@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../common/head') %>
+</head>
+
+<body style="background-color: white;">
+    <header style="position: sticky; top: 0; z-index: 999;">
+        <div class="section-title">
+            <h2>Create New Challenge</h2>
+        </div>
+    </header>
+    
+    <!--Main layout-->
+    <main>
+        <div class="create-form container mt-5 mb-5">  
+            <!-- Create Form Section -->
+            <form>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <p><b>Challenge Name</b></p>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <input type="text" name="challenge-name" class="form-control" id="challenge-name" placeholder="Challenge Name"/>
+                        <p class="cNameBlank" style="color: red; display: none;">
+                            Challenge name is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="form-group col-md-2">
+                        <p><b>Instruction</b></p>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <textarea class="form-control" name="instruction" id="instruction" placeholder="Instructions for the Students"></textarea>
+                        <p class="instructBlank" style="color: red; display: none;">
+                            Instruction is required.
+                        </p>
+                    </div>
+                </div>
+                <!-- Maze Section -->
+                <div class="row maze mt-3">
+                    <div class="form-group col-md-2">
+                        <p><b>Maze Path</b></p>
+                    </div>
+                    <div class="form-group col-md-10 row">
+                        <div class="form-group col-lg-6">
+                            <p>Click on the black tile below to create the path of the maze.</p>
+                            <%- include('../common/maze') %>
+                        </div>
+                        <div class="form-group col-lg-6" style="position: relative;">
+                            <p style="text-decoration: underline; text-align: center; position: relative;">Guide for x and y axis</p>
+                            <img src="/img/axes.png" alt="axes-guide">
+                        </div>
+                    </div>
+                </div>
+                <!-- Command Section -->
+                <div class="row mt-3">
+                    <div class="form-group col-md-2">
+                        <p><b>Commands</b></p>
+                    </div>
+                    <div class="form-group col-md-10">
+                        <input type="text" name="challenge-name" class="form-control" id="command" placeholder="These will be the commands that will be sent to the car when the students successfully complete the maze."/>
+                        <div class="form-text">Available Commands are: F for Forward, L for Left, R for Right</div>
+                        <div class="form-text">Example: FLR Represents Forward, Left, Right</div>
+                        <p class="commandBlank" style="color: red; display: none;">
+                            Command is required.
+                        </p>
+                        <p class="mt-4">Indicate 1 to 5 value in the x-axis and y-axis input for the Car Start Point and Destination.</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="form-group col-md-2">
+                        <p><b>Car Start Point</b></p>
+                    </div>
+                    <div class="form-group col-md-10 row">
+                        <div class="form-group col-md-6 row">
+                            <p class="col-md-3">x-axis</p>
+                            <input type="number" name="x-car" style="width: 50%;" class="form-control col-md-9" id="x-car" onchange="updateCarPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
+                        </div>
+                        <div class="form-group col-md-6 row">
+                            <p class="col-md-3">y-axis</p>
+                            <input type="number" name="y-car" style="width: 50%;" class="form-control col-md-9" id="y-car" onchange="updateCarPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="form-group col-md-2">
+                        <p><b>Destination</b></p>
+                    </div>
+                    <div class="form-group col-md-10 row">
+                        <div class="form-group col-md-6 row">
+                            <p class="col-md-3">x-axis</p>
+                            <input type="number" name="x-dest" style="width: 50%;" class="form-control col-md-9" id="x-dest" oninput="updateDestPos()" onfocus="this.value=''" value="0" min=1  max=5/>
+                        </div>
+                        <div class="form-group col-md-6 row">
+                            <p class="col-md-3">y-axis</p>
+                            <input type="number" name="y-dest" style="width: 50%;" class="form-control col-md-9" id="y-dest" oninput="updateDestPos()" onfocus="this.value=''" value="0" min=1 max=5/>
+                        </div>
+                        <p class="axisBlank" style="color: red; display: none;">
+                            Car Start Point or Destination is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-4 d-flex justify-content-end">
+                    <button type="cancel" class="btn btn-danger" onclick="window.location.href='/admin/challengesDashboard'">Cancel</button> &nbsp&nbsp
+                    <button type="button" class="btn btn-success " onclick="createBtn()">Create</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+
+    <script src="/js/maze.js"></script>
+    <script src="/js/createChallenge.js"></script>
+    <script>
+        // <!-- Remove Sidebar -->
+        $(document).ready(function(){
+            $("#sidebarMenu").removeClass("sidebar");
+            $(".position-sticky").css('display', 'none');
+        });
+    </script>
+</body>
+</html>

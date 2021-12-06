@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('../common/head') %>
+
+</head>
+
+<body>
+    <header>
+        <%- include('../common/header') %>
+    </header>
+
+    <!--Main layout-->
+    <main>
+        <div class="firstDiv">
+            <div class="container pt-5">
+                <h1 class="d-flex mt-4 h2">Dashboard Sensor Data</h1>
+                <table class="table mt-4 table-striped border border-dark dashboard" id="sensorTable"
+                    style="background-color: #EAEDF1;">
+                    <thead class="table-dark">
+                        <tr class>
+                            <th class="col-md-4">Wheel Encoder</th>
+                            <th class="col-md-4">Time Taken</th>
+                            <th class="col-md-4">Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../common/footer') %>
+    </footer>
+    <!-- Highlight current page -->
+    <script>
+        $(document).ready(async function () {
+            $("#dashboard").addClass("currentPage");
+            $("#challenges").removeClass("currentPage");
+            const response = await axios.get('/sensorData')
+            for (let i in response.data) {
+                $('#sensorTable tbody').append(`
+        <tr>
+            <td>${response.data[i].wheelEncoder}</td>
+            <td>${response.data[i].timeTaken}</td>
+            <td>${response.data[i].createdAt}</td>
+        </tr>
+    `)
+            }
+        });
+    </script>
+
+</body>
+
+</html>
