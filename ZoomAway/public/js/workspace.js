@@ -205,7 +205,7 @@ function runCodeDelay(code) {
                     //icon: "success"
                 });
                 axios.post('/challenges/sendCommand', {
-                    commands: $('#command').val()
+                    command: $('#command').val()
                 }).then(response => {
                     var interval = setInterval(function () {
                         $.getJSON('/MSP432 Files/response.json', function (data) {
@@ -280,6 +280,7 @@ function playStageClear() {
 async function init() {
     const response=await axios.get('/challenges/'+$('#challengeId').val())
     console.log(response)
+    $('#instruction').html(response.data.instruction)
     $('#command').val(response.data.command)
     mazes[1]={
         map: [

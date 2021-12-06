@@ -172,29 +172,3 @@ body {
 .maze p {
   font-size: medium;
 }
-/*----------------------------
-| Cancel and Submit Buttons   |
------------------------------*/
-.cancel {
-  background-color: #690505;
-  border: none;
-}
-
-.cancel:focus,
-.cancel:hover {
-  background-color: #890505;
-  border: none;
-  -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-}
-
-.submit {
-  background-color: #085821;
-  border: none;
-}
-
-.submit:focus, 
-.submit:hover {
-  background-color: #047628;
-  border: none;
-  -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
-}

@@ -20,17 +20,40 @@
     <main>
         <input type="hidden" id="challengeId" value="<%= challengeId%>">
         <input type="hidden" id="command">
-        <div class="container mt-5 mb-5 row" style="margin: auto;">
-            <div class="col-md-6">
-                <p>
-                    <button class="btn btn-success" id="runCode" onclick="runCode()">Run</button>
-                    <button class="btn btn-danger" id="clearBtn" onclick="clearWorkspace()">Reset Workspace</button>
-                    <button class="btn btn-danger" id="resetBtn" onclick="resetMaze()">Reset Maze</button>
-                </p>
-                <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+        <div class="container row mb-5" style="margin: auto; margin-top: 8%; padding: 2% 0% 2% 0%; background-color: rgb(230, 231, 240);">
+            <!-- Maze and Instruction Scetion -->
+            <div class="col-lg-4 row mt-2 mb-2 ml-2">
+                <div class="">
+                    <!-- Maze -->
+                    <div  class="maze">
+                        <div class="title" style="text-align: center; background-color: #D6D6D6; margin-bottom: -2%;">
+                            <h2 style="font-size: 27px; font-weight: normal;">Visual Maze</h2>
+                        </div>
+                        <%- include('common/maze') %>
+                    </div>
+                    <!-- Instruction -->
+                    <div class="instruction">
+                        <div class="title" style="text-align: center; background-color: #D6D6D6; margin-bottom: -2%;">
+                            <h2 style="font-size: 27px; font-weight: normal;">Instruction</h2>
+                        </div>
+                        <div class="instDetail container" style="background-color: white;">
+                            <div id="instruction" style="height: 135px; padding: 1%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6 d-flex" style="margin: auto;">
-                <%- include('common/maze') %>
+            <!-- Blockly Workspace -->
+            <div class="col-lg-8 mt-2">
+                <div class="title" style="text-align: center; background-color: #D6D6D6; margin-bottom: -1%;">
+                    <h2 style="font-size: 27px; font-weight: normal;">Challenge</h2>
+                </div>
+                <div id="blocklyDiv" style="height: 490px; width: 100%;"></div>
+                <div class="d-flex flex-row-reverse mt-3">
+                    <button class="btn btn-success" id="runCode" onclick="runCode()">Launch Script</button> &nbsp
+                    <button class="btn btn-secondary" id="resetBtn" onclick="resetMaze()">Reset Maze</button> &nbsp
+                    <button class="btn btn-warning" id="clearBtn" onclick="clearWorkspace()">Reset Workspace</button>&nbsp
+                    <button class="btn btn-danger"  onclick="window.location.href='/'">Cancel</button> 
+                </div>
             </div>
         </div>
         
