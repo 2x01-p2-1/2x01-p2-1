@@ -17,8 +17,16 @@ router.get('/challengesDashboard',(req,res)=>{
     }else{
         res.render('admin/login')
     }
-    
 })
+
+router.get('/dashboard',(req,res)=>{
+    if(req.isAuthenticated()){
+        res.render('admin/dashboard')
+    }else{
+        res.render('admin/login')
+    }
+})
+
 
 router.get('/login',(req,res)=>{
     res.render("admin/login")

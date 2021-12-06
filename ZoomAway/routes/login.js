@@ -3,8 +3,9 @@ const router = express.Router();
 
 var itemRouter = express.Router({ strict: true });
 router.use('/:login', itemRouter);
-const Login=require('../controllers/login.controller')
+const loginController=require('../controllers/login.controller')
 
-router.post('/',Login.validateInput('login'),Login.login)
+router.get('/',loginController.render)
+router.post('/',loginController.login)
 
 module.exports = router;
