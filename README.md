@@ -12,15 +12,15 @@ Step 1: Clone from Github main branch using "git clone https://github.com/2x01-p
 
 Step 2: Open Command Prompt
 
-Step 3: Type "cd (cloned main branch directory)" in the cmd
+Step 3: Type "cd (cloned main branch directory)" in the Command Prompt
 
-Step 3: Type "cd zoomaway" in the cmd
+Step 3: Type "cd zoomaway" in the Command Prompt
 
-Step 4: Type "npm install" in the cmd 
+Step 4: Type "npm install" in the Command Prompt
 
-Step 5: Type "npm start" in the cmd 
+Step 5: Type "npm start" in the Command Prompt
 
-Step 6: Type localhost:3000 in a web browser to access the website
+Step 6: Type "localhost:3000" in a web browser to access the website
 
 # “Development Workflow” section
 provide a brief yet sufficiently comprehensive description of your team’s workflow using git and GitHub features
