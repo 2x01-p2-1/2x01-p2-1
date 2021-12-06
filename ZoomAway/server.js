@@ -82,3 +82,5 @@ const tcpServer = net.createServer(function (client) {
 tcpServer.listen(5000,()=>{
   console.log("TCP Server Listening on Port:5000")
 })
+
+module.exports = app;
