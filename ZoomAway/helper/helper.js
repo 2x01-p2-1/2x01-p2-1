@@ -1,5 +1,5 @@
 
-const formatError = (code, message, desc) => {
+const formatMessage = (code, message, desc) => {
     var obj = {
         "code": code,
         "description": desc,
@@ -9,4 +9,4 @@ const formatError = (code, message, desc) => {
     return obj;
 };
 
-exports.formatError=formatError;
+exports.formatMessage=formatMessage;

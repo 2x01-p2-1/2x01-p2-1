@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('common/head') %>
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/msg/en.js"></script>
+    <script src="/js/definitions.js"></script>
+    <script src="/js/customblocks.js"></script>
+</head>
+<body>
+    <header style="position: sticky; top: 0; z-index: 999;">
+        <div class="section-title">
+            <h2>Challenge</h2>
+        </div>
+    </header>
+
+    <main>
+        <input type="hidden" id="challengeId" value="<%= challengeId%>">
+        <input type="hidden" id="command">
+        <div class="container row mb-5" style="margin: auto; margin-top: 3%; padding: 2% 0% 2% 2%; background-color: rgb(230, 231, 240);">
+            <!-- Maze and Instruction Scetion -->
+            <div class="col-lg-4 row mb-4">
+                <div class="firstCol">
+                    <!-- Maze -->
+                    <div  class="maze">
+                        <div class="title" style="text-align: center; background-color: #D6D6D6; width: 84%; margin-bottom: -2%;">
+                            <h2 style="font-size: 27px; font-weight: normal;">Visual Maze</h2>
+                        </div>
+                        <%- include('common/maze') %>
+                    </div>
+                    <!-- Instruction -->
+                    <div class="instruction">
+                        <div class="title" style="text-align: center; background-color: #D6D6D6; width: 84%; margin-bottom: -2%;">
+                            <h2 style="font-size: 27px; font-weight: normal;">Instruction</h2>
+                        </div>
+                        <div class="instDetail" style="background-color: white; width: 84%;">
+                            <div id="instruction" style="height: 135px; padding: 1%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blockly Workspace -->
+            <div class="col-lg-8">
+                <div class="title" style="text-align: center; background-color: #D6D6D6; margin-bottom: -0.9%;">
+                    <h2 style="font-size: 27px; font-weight: normal;">Challenge</h2>
+                </div>
+                <div id="blocklyDiv" style="height: 490px; width: 100%;"></div>
+                <div class="d-flex flex-row-reverse mt-3">
+                    <button class="btn btn-success" id="runCode" onclick="runCode()">Launch Script</button> &nbsp
+                    <button class="btn btn-secondary" id="resetBtn" onclick="resetMaze()">Reset Maze</button> &nbsp
+                    <button class="btn btn-warning" id="clearBtn" onclick="clearWorkspace()">Reset Workspace</button>&nbsp
+                    <button class="btn btn-danger"  onclick="window.location.href='/'">Cancel</button> 
+                </div>
+            </div>
+        </div>
+        
+        <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+            <block type="move_left"></block>
+            <block type="move_right"></block>
+            <block type="move_up"></block>
+        </xml>
+    </main>
+
+    <footer>
+        <%- include('common/footer') %>
+    </footer>
+    <script src="/js/maze.js"></script>
+    <script src="/js/workspace.js"></script>
+    <script>
+        // <!-- Remove Sidebar -->
+        $(document).ready(function(){
+            $("#sidebarMenu").removeClass("sidebar");
+            $(".position-sticky").css('display', 'none');
+        });
+    </script>
+</body>
+
+</html>

@@ -2,12 +2,12 @@ const Account = require("../models/account.model");
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+const helper = require('../helper/helper')
 
 /**********************
  * Passport Local Strategy to Login
  *********************/
 passport.use(
-
     new localStrategy({
             usernameField: 'email',
             passwordField: 'password',
@@ -48,3 +48,16 @@ passport.deserializeUser(async function (_id, done) {
     let user = await Account.findById(_id);
     done(null, user);
 });
+
+/**********************
+ * Function to Check if User is Authenticated
+ *********************/
+ exports.checkAuthenticated = function () {
+    return function (req, res, next) {
+        if(req.isAuthenticated()){
+            next()
+        }else{
+            res.status(401).send(helper.formatMessage(401,"Unauthorized","Unauthorized"))
+        }
+    }
+}
