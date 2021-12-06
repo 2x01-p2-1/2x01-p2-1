@@ -25,16 +25,14 @@ For branch management, our team have decided to create the branches based on the
 Upon the completion of the development of the features, members will initiate pull request. Once a pull request is opened, we discuss and group leader will review the potential changes and add follow-up commits before the changes are merged into the base branch.
 
 # “UAT” section
-include an updated use case diagram and system state diagram if there are changes made based on M2. Highlight the changes clearly.
-
-Use Case Diagram
+# Use Case Diagram
 ![Updated Use case for milestone 2 (3)](https://user-images.githubusercontent.com/71886838/144853161-c111824c-ab16-49cc-bfee-9fab6967b9bf.png)
 
-System State Diagram
+# System State Diagram
 ![System State Diagram - Page 2 (4)](https://user-images.githubusercontent.com/71886838/144857450-4ed12e2c-7472-4959-a124-2fefc991fa17.png)
 
-an embedded video that runs through all the system test cases you have created (and refined) from M2
-~3 mins long to cover all system tests
+# System Test Case Video
+
 
 # “Whitebox Testing” section
 choose one meaningful class to demonstrate your test code. “Meaningful” here means 2 or more interactions with other classes, e.g., a Control class. Please do not use an Entity class.
@@ -42,5 +40,6 @@ list the test cases for this test suite (for this one class) and where they resi
 show code coverage statistics for each test case, including an explanation of how you have generated these statistics (whether manual, through a lib, or via the IDE)
 provide instructions how to run the test suite
 embed an animated gif or another short video (~1 min) of the test case being ran
-
+Our team chose the Challenges control class to do the whilebox testing. 
+The test cases are:
 
