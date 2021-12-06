@@ -36,7 +36,7 @@ Use Case Diagram
 ![Updated Use case for milestone 2 (3)](https://user-images.githubusercontent.com/71886838/144853161-c111824c-ab16-49cc-bfee-9fab6967b9bf.png)
 
 System State Diagram
-![System State Diagram - Page 2 (1)](https://user-images.githubusercontent.com/71886838/144845604-4e5d8bf6-db03-4bdd-9382-5b0b7b0330cd.png)
+![System State Diagram - Page 2 (2)](https://user-images.githubusercontent.com/71886838/144855502-ea148786-149b-4aea-b0a8-a6442fcdf68a.png)
 
 an embedded video that runs through all the system test cases you have created (and refined) from M2
 ~3 mins long to cover all system tests
