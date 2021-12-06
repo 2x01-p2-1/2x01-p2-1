@@ -4,6 +4,6 @@ const router = express.Router();
 var itemRouter = express.Router({ strict: true });
 router.use('/:sensorData', itemRouter);
 
-const Challenges=require('../controllers/sensorData.controller')
-
+const sensorData=require('../controllers/sensorData.controller')
+router.get('/',sensorData.getAll);
 module.exports = router;

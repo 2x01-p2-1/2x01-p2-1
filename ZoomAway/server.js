@@ -61,7 +61,7 @@ const tcpServer = net.createServer(function (client) {
   client.setEncoding('utf-8')
   client.on('data', function (data) {
     console.log(data)
-    if (data == "Hello") {
+    if (data == "getCommand") {
       try {
         const data = fs.readFileSync('public/MSP432 Files/commands.txt', 'utf8')
         fs.truncateSync( 'public/MSP432 Files/commands.txt', 0 )
@@ -70,7 +70,12 @@ const tcpServer = net.createServer(function (client) {
         console.log(err)
       }
     } else {
-      // console.log(JSON.parse(data))
+      var payload = JSON.parse(data.substring(
+        data.indexOf("{") , 
+        data.lastIndexOf("}")+1
+    ));
+    console.log(payload)
+      client.end('');
 
     }
   })

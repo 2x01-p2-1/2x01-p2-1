@@ -16,7 +16,7 @@
         <div class="firstDiv">
             <div class="container pt-5">
                 <h1 class="d-flex mt-4 h2">Dashboard Sensor Data</h1>
-                <table class="table mt-4 table-striped border border-dark dashboard" id="challengeTable"
+                <table class="table mt-4 table-striped border border-dark dashboard" id="sensorTable"
                     style="background-color: #EAEDF1;">
                     <thead class="table-dark">
                         <tr class>
@@ -25,30 +25,8 @@
                             <th class="col-md-4">Created At</th>
                         </tr>
                     </thead>
-                        <tr>
-                            <td>90</td>
-                            <td>300</td>
-                            <td>25-11-2021 14:27:53</td>
-
-                        </tr>
-                        <tr>
-                            <td>92</td>
-                            <td>290</td>
-                            <td>30-11-2021 09:36:18</td>
-                        </tr>
-                    
-                        <tr>
-                            <td>90</td>
-                            <td>292</td>
-                            <td>02-12-2021 18:25:37</td>
-
-                        </tr>
-                        <tr>
-                            <td>89</td>
-                            <td>295</td>
-                            <td>05-12-2021 21:48:35</td>
-                        </tr>
                     <tbody>
+
                     </tbody>
                 </table>
             </div>
@@ -60,9 +38,19 @@
     </footer>
     <!-- Highlight current page -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(async function () {
             $("#dashboard").addClass("currentPage");
             $("#challenges").removeClass("currentPage");
+            const response = await axios.get('/sensorData')
+            for (let i in response.data) {
+                $('#sensorTable tbody').append(`
+        <tr>
+            <td>${response.data[i].wheelEncoder}</td>
+            <td>${response.data[i].timeTaken}</td>
+            <td>${response.data[i].createdAt}</td>
+        </tr>
+    `)
+            }
         });
     </script>
 
