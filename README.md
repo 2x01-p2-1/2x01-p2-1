@@ -22,7 +22,7 @@ Step 6: Type "localhost:3000" in a web browser to access the website
 # “Development Workflow” section
 For branch management, our team have decided to create the branches based on the various features that the website had to offer. Each member would be allocated features that they would be in-charge of. After making changes to their features, they would commit the code to their allocated branch. The process would be repeated by each member until they have completed developing on the features. 
 
-Upon the completion of the development of the features, members will initiate pull request. Once a pull request is opened, we discuss and group leader will review the potential changes and add follow-up commits before the changes are merged into the base branch.
+Upon the completion of the development of the features, members will initiate pull request. Once a pull request is opened, we will discuss with the group leader and he will review the potential changes and add follow-up commits before the changes are merged into the base branch.
 
 # “UAT” section
 # Use Case Diagram
