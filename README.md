@@ -12,9 +12,9 @@ Step 1: Clone from Github main branch using "......" on the directory of your ch
 
 Step 2: Cd to zoomaway using "cd zoomaway"
 
-Step 3: Type npm install in the cmd using "npm install"
+Step 3: Type "npm install" in the cmd 
 
-Step 4: Type npm start in the cmd using "npm start"
+Step 4: Type "npm start" in the cmd 
 
 Step 5: Type localhost:3000 on a web browser to access the website
 
