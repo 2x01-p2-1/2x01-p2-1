@@ -8,11 +8,11 @@ Thus, the purpose of this project is to provide teachers with an intuitive metho
 keep it straight to the point of how to access the entry point of the web app
 any necessary dependencies to run it
 
-Step 1: Clone from Github main branch using "......" to the directory of your choice
+Step 1: Clone from Github main branch using "git clone https://https://github.com/2x01-p2-1/2x01-p2-1" to the directory of your choice
 
 Step 2: Open Command Prompt
 
-Step 3: Cd to the cloned main branch using "cd <cloned main branch>"
+Step 3: Cd to the cloned main branch that you have choosen using "cd "<cloned main branch>""
 
 Step 3: Cd to zoomaway using "cd zoomaway"
 
