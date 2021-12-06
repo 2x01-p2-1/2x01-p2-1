@@ -5,7 +5,6 @@
     <%- include('common/head') %>
 </head>
 
-
 <body>
     <header>
         <!-- Navbar Student-->
@@ -23,8 +22,8 @@
                 </a>
                 <!-- Icon -->
                 <ul class="navbar-nav ms-auto d-flex flex-row">
-                    <button type="button" class="btn btn-secondary toAdminBtn" onclick="window.location.href='/admin/login'">Go To Admin
-                        Site</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <button type="button" class="btn btn-secondary toAdminBtn"
+                        onclick="window.location.href='/admin/login'" style="background-color: rgb(68, 67, 67); border: none;">Go To Admin Site</button>&nbsp&nbsp&nbsp&nbsp&nbsp
                     <span class="navbar-text" style="font-size: larger;">
                         Student
                     </span>
@@ -36,35 +35,26 @@
 
     <!--Main layout-->
     <main>
-        <div class="firstDiv">
-            <div class="container pt-5">
-                <h1 class="d-flex mt-4 h2">Challenges</h1>
-                <table class="table mt-4 table-striped border border-dark challengesTable" id="challengeTable"
-                    style="background-color: #EAEDF1;">
-                    <thead class="table-dark">
-                        <tr class>
-                            <th class="col-md-10">List of Challenges</th>
-                            <th class="col-md-1"></th>
-                            <th class="col-md-1 text-center plus"><a href="createChallenge"><i
-                                        data-feather="plus"></i></a></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+        <div class="container pt-5">
+            <h1 class="d-flex mt-4 h2">Challenges</h1>
+            <table class="table mt-4 table-striped border border-dark challengesTable" id="challengeTable"
+                style="background-color: #EAEDF1;">
+                <thead class="table-dark">
+                    <tr class>
+                        <th class="col-md-10">List of Challenges</th>
+                        <th class="col-md-1"></th>
+                        <th class="col-md-1 text-center plus"><a href="createChallenge"><i data-feather="plus"></i></a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
     </main>
 
 </body>
 <script src="/js/homepage.js"></script>
-<!-- Highlight current page -->
-<script>
-    $(document).ready(function () {
-        $("#dashboard").removeClass("currentPage");
-        $("#challenges").addClass("currentPage");
-    });
-</script>
 
 </html>

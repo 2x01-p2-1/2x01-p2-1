@@ -45,7 +45,6 @@
                     </div>
                     <div class="form-group col-md-10">
                         <input type="text" name="challenge-name" class="form-control" id="command" placeholder="These will be the commands that will be sent to the car when the students successfully complete the maze."/>
-                        
                         <div class="form-text">Available Commands are: F for Forward, L for Left, R for Right</div>
                         <div class="form-text">Example: FLR Represents Forward, Left, Right</div>
                         <p class="commandBlank" style="color: red; display: none;">
@@ -76,27 +75,27 @@
                     </div>
                     <div class="form-group col-md-10 row">
                         <div class="form-group col-md-6 row">
-                            <p class="col-md-6">x-axis</p>
-                            <input type="number" name="x-car" class="form-control col-md-6" id="x-car" onchange="updateCarPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
+                            <p class="col-md-3">x-axis</p>
+                            <input type="number" name="x-car" style="width: 50%;" class="form-control col-md-9" id="x-car" onchange="updateCarPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
                         </div>
                         <div class="form-group col-md-6 row">
-                            <p class="col-md-6">y-axis</p>
-                            <input type="number" name="y-car" class="form-control col-md-6" id="y-car" onchange="updateCarPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
+                            <p class="col-md-3">y-axis</p>
+                            <input type="number" name="y-car" style="width: 50%;" class="form-control col-md-9" id="y-car" onchange="updateCarPos()" onfocus="this.value=''" value="0" min="1" max="5"/>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="form-group col-md-2">
                         <p><b>Destination</b></p>
                     </div>
                     <div class="form-group col-md-10 row">
                         <div class="form-group col-md-6 row">
-                            <p class="col-md-4">x-axis</p>
-                            <input type="number" name="x-dest" class="form-control col-md-7" id="x-dest" oninput="updateDestPos()" onfocus="this.value=''" value="0" min=1  max=5/>
+                            <p class="col-md-3">x-axis</p>
+                            <input type="number" name="x-dest" style="width: 50%;" class="form-control col-md-9" id="x-dest" oninput="updateDestPos()" onfocus="this.value=''" value="0" min=1  max=5/>
                         </div>
                         <div class="form-group col-md-6 row">
-                            <p class="col-md-4">y-axis</p>
-                            <input type="number" name="y-dest" class="form-control col-md-7" id="y-dest" oninput="updateDestPos()" onfocus="this.value=''" value="0" min=1 max=5/>
+                            <p class="col-md-3">y-axis</p>
+                            <input type="number" name="y-dest" style="width: 50%;" class="form-control col-md-9" id="y-dest" oninput="updateDestPos()" onfocus="this.value=''" value="0" min=1 max=5/>
                         </div>
                         <p class="axisBlank" style="color: red; display: none;">
                             Car Start Point or Destination is required.

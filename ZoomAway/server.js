@@ -64,7 +64,7 @@ const tcpServer = net.createServer(function (client) {
     if (data == "Hello") {
       try {
         const data = fs.readFileSync('public/MSP432 Files/commands.txt', 'utf8')
-        fs.truncateSync( 'MSP432 Files/commands.txt', 0 )
+        fs.truncateSync( 'public/MSP432 Files/commands.txt', 0 )
         client.end(data)
       } catch (err) {
         console.log(err)
