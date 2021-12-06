@@ -16,7 +16,7 @@ Step 3: Type npm install in the cmd using "npm install"
 
 Step 4: Type npm start in the cmd using "npm start"
 
-Step 5: Access to the website: type localhost:3000 on a web browser
+Step 5: Type localhost:3000 on a web browser to access the website
 
 # “Development Workflow” section
 provide a brief yet sufficiently comprehensive description of your team’s workflow using git and GitHub features
