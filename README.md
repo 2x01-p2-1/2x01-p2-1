@@ -32,6 +32,12 @@ TCP Server Listening on Port:5000
 ```
 6. Access the web interface by typing ```localhost:3000``` into your preferred web browser.
 
+7. Login to the admin account using these credentials.
+```
+email: admin@zoomaway.com
+password: password
+```
+
 # Development Workflow
 In terms of branch management, our team decided to create branches based on the various features that the website has to offer. Each member would then be in-charge of developing said features on the specified branches thus, only committing code to their allocated branches.
 
