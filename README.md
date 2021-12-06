@@ -25,7 +25,7 @@ Step 6: Type "localhost:3000" in a web browser to access the website
 # “Development Workflow” section
 provide a brief yet sufficiently comprehensive description of your team’s workflow using git and GitHub features
 
-For branch management, our team have decided to create the branches based on the various features that the website had to offer. Each member would be allocated features that they would be in charge of. After making changes to their branches, they would commit the code to their allocated branch. The process would be repeated by each member until they have completed developing on the features. 
+For branch management, our team have decided to create the branches based on the various features that the website had to offer. Each member would be allocated features that they would be in-charge of. After making changes to their branches, they would commit the code to their allocated branch. The process would be repeated by each member until they have completed developing on the features. 
 
 Upon the completion of the website, all the branches would be merged to dev for intergation of the features??????
 
