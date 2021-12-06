@@ -12,7 +12,7 @@ Step 1: Clone from Github main branch using "git clone https://https://github.co
 
 Step 2: Open Command Prompt
 
-Step 3: Cd to the cloned main branch that you have choosen using "cd "<cloned main branch>""
+Step 3: Cd to the cloned main branch that you have choosen using "cd (cloned main branch)"
 
 Step 3: Cd to zoomaway using "cd zoomaway"
 
